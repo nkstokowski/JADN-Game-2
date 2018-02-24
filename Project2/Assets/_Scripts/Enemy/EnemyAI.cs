@@ -45,17 +45,21 @@ public class EnemyAI : MonoBehaviour {
 
 	void Update () {
 
-		//Player Detection
-		if (CanSeeTarget (player.transform.position)) {	//If we can see the player
+		//If we can see the player in our line of sight, or the player is super close to us, chase it
+		if (CanSeeTarget (player.transform.position) || TargetIsInRange(player.transform.position,lineOfSightThreshold/2f)) {	//If we can see the player
 			canSeePlayer = true;
 			SetTarget (player.transform.position);		//Change our target to the player.
 		} else {
 			canSeePlayer = false;
-			//Only reset the target to the main goal if IT ISN'T ALREADY
-			//Otherwise we will be calculating paths every frame and that's really slow.
+			//Only reset the target to the main goal if IT ISN'T ALREADY the current target. Otherwise we will be calculating paths every frame and that's really slow.
 			if (agent.destination != target.transform.position) {
 				SetTarget (target.transform.position);
 			}
+		}
+
+		//IF all of that is true, BUT we are close to our target, attack the target instead. (don't care about the player)
+		if(TargetIsInRange(target.transform.position, lineOfSightThreshold)){
+			SetTarget (target.transform.position);
 		}
 	}
 
