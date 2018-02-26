@@ -53,11 +53,6 @@ public class EnemyManager : MonoBehaviour {
 		var angle = Random.Range(0,360);
 		float x = Mathf.Cos (angle) * radius;
 		float z = Mathf.Sin (angle) * radius;
-		Debug.Log ("X: " + x);
-		Debug.Log ("Z: " + z);
-		Debug.Log ("Angle: " + angle);
-		Debug.Log ("________________");
-
 		if(Physics.Raycast(new Ray(temp.transform.position,temp.transform.forward),0.05f)){
 			SetEnemyPositionUntilNotColliding (radius * 1.05f, temp);
 		}

@@ -15,9 +15,12 @@ public class PlayerShooting : MonoBehaviour {
     private LineRenderer arrowLine;
     private float nextFire;
 
+	private GameManager gameManager;
+
 	// Use this for initialization
 	void Start () {
         arrowLine = GetComponent<LineRenderer>();
+		gameManager = GameObject.Find ("Game_Manager").GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -25,7 +28,7 @@ public class PlayerShooting : MonoBehaviour {
 
         bool inputActive = (singleFire) ? Input.GetButtonDown("Fire1") : Input.GetButton("Fire1");
 
-        if (inputActive && Time.time > nextFire)
+		if (inputActive && Time.time > nextFire && !gameManager.isPaused)
         {
             nextFire = Time.time + fireRate;
 
