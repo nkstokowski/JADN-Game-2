@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float walkSpeed = 10.0f;
 	public float runSpeed;
 	public bool isRunning = false;
+    public Vector3 nextPosition;
 
     [HeaderAttribute("Rotation Variables")]
     public float cameraRadius = 0.001f;
@@ -32,9 +33,12 @@ public class PlayerMovement : MonoBehaviour {
 			isRunning = false;
 		}
 
+        Vector3 currentPosition = transform.position;
+
 		// Player Movement
 		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * currentSpeed;
 		var z = Input.GetAxis ("Vertical") * Time.deltaTime * currentSpeed;
+
 		transform.Translate(x, 0.0f, z);
 
 		// Player rotation
