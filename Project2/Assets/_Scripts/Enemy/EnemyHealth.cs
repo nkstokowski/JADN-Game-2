@@ -28,6 +28,14 @@ public class EnemyHealth : MonoBehaviour {
 		}
 	}
 
+	//Adds health to an enemy
+	void Heal(int amount){
+		currentHealth += amount;
+		if(currentHealth > MAX_HEALTH){
+			currentHealth = MAX_HEALTH;
+		}
+	}
+
 	//What to do when this enemy dies.
 	void Die(){
 		enemyManager.enemies.Remove (this.gameObject);	//Remove manager reference to this enemy

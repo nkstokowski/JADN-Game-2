@@ -27,7 +27,6 @@ public class EnemyAI : MonoBehaviour {
 	public int fovLeft = -45;
 	public int fovRight = 45;
 
-
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();					//Get components needed for nav Mesh
 		player = GameObject.FindGameObjectWithTag("Player");	//Get Player so we can save it as a reference
@@ -36,11 +35,6 @@ public class EnemyAI : MonoBehaviour {
 		//Set properties of the NavMeshAgent component. (This is so we only have to touch this compenent not mess with the component in the inspector itself.)
 		agent.speed = walkSpeed;
 		agent.stoppingDistance = stopDistance;
-
-		//Init the agent destination to the final target
-		//Add this line in when the target exists otherwise we'll get an exception.
-		//SetTarget(target.transform.position);
-
 	}
 
 	void Update () {

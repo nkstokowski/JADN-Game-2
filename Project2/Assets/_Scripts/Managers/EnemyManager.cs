@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyManager : MonoBehaviour {
 
 	[HeaderAttribute("Customizable Variables")]
@@ -15,6 +16,9 @@ public class EnemyManager : MonoBehaviour {
 
 	[HeaderAttribute("Debug Variables")]
 	public int currentEnemyCount;
+
+	[HeaderAttribute("Enemy Type Variables")]
+	public EnemyType[] enemyTypes;
 
 	//Non inspector variables
 	public List<GameObject> enemies = new List<GameObject>();
@@ -41,6 +45,9 @@ public class EnemyManager : MonoBehaviour {
 				GameObject temp = Instantiate (enemyTransform, position, spawnRotation) as GameObject;
 				enemies.Add (temp);
 
+				//Change this when we decide how to set the enemy type.
+				temp.GetComponent<EnemyAttack> ().type = enemyTypes[0];
+
 				//Calculate position around circle 
 				temp.transform.position = SetEnemyPositionUntilNotColliding(spawnRadius, temp);
 			}
@@ -60,4 +67,24 @@ public class EnemyManager : MonoBehaviour {
 		return new Vector3(x,1.0f,z);	
 	}
 
+}
+
+
+public enum enemyType {
+	Standard,
+	Agile,
+	Slow,
+	Super }
+
+[System.Serializable]
+public struct EnemyType{
+	public enemyType type;
+	public int damage;
+	public float attackRadius;
+
+	public EnemyType(enemyType typ, int dam, float attRad){
+		type = typ;
+		damage = dam;
+		attackRadius = attRad;
+	}
 }

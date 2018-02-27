@@ -1031,6 +1031,19 @@ MonoBehaviour:
   spawnTime: 2.5
   enemiesPerSpawn: 0
   currentEnemyCount: 0
+  enemyTypes:
+  - type: 0
+    damage: 10
+    attackRadius: 2
+  - type: 1
+    damage: 5
+    attackRadius: 3.5
+  - type: 2
+    damage: 15
+    attackRadius: 1.5
+  - type: 3
+    damage: 25
+    attackRadius: 2
   enemies: []
 --- !u!4 &824829461
 Transform:
