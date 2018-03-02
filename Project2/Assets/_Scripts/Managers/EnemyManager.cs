@@ -46,7 +46,7 @@ public class EnemyManager : MonoBehaviour {
 				enemies.Add (temp);
 
 				//Change this when we decide how to set the enemy type.
-				temp.GetComponent<EnemyAttack> ().type = enemyTypes[0];
+				//temp.GetComponent<EnemyAttack> ().type = enemyTypes[0];
 
 				//Calculate position around circle 
 				temp.transform.position = SetEnemyPositionUntilNotColliding(spawnRadius, temp);
