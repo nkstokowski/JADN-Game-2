@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 65472573489720898}
   - component: {fileID: 23800059830287246}
   - component: {fileID: 96937830061115978}
+  - component: {fileID: 114785009806052426}
+  - component: {fileID: 54549006594429766}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -82,6 +84,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831164234548442}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54549006594429766
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831164234548442}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65472573489720898
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -127,10 +144,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.25
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -177,4 +194,17 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
+  m_Autodestruct: 1
+--- !u!114 &114785009806052426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831164234548442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f47e67db8cce3d4793dd0cc67af246b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalTrail: {fileID: 0}
+  perfectTrail: {fileID: 0}

@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowShooting : MonoBehaviour {
+public class ArrowShootingRay : MonoBehaviour
+{
 
     // GameObjects or Components that the script is dependent on
     [HeaderAttribute("Dependencies")]
+    public ParticleSystem emitter;
     public GameObject gameManagerObj;
     public Transform gunEnd;
-    public GameObject arrow;
     private GameManager manager;
-    private LineRenderer arrowLine;
 
     // Variables that affect the shooting
     [HeaderAttribute("Shooting Variables")]
-    public int gunDamage = 1;
+    public int gunDamage = 100;
     public float fireRate = .25f;
     public float weaponRange = 50f;
     public float hitForce = 100f;
+    public float arrowSpeed = 50.0f;
     private float nextFire;
     private float shotDistance = 0.0f;
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
@@ -31,7 +32,6 @@ public class ArrowShooting : MonoBehaviour {
 
     void Start()
     {
-        arrowLine = GetComponent<LineRenderer>();
         if (!gameManagerObj)
         {
             Debug.Log(name + ": No Game Manager Found");
@@ -57,12 +57,12 @@ public class ArrowShooting : MonoBehaviour {
 
         if (Input.GetButtonUp("Fire1"))
         {
-            Debug.Log("You had: " + (perfectCharge - charge));
+            //Debug.Log("You had: " + (perfectCharge - charge));
             // If fire is being pressed, the weapon is ready to fire, and the game is not paused, you can fire
             if (Time.time > nextFire && !manager.isPaused && (perfectCharge - charge) >= -chargeThreshold)
             {
 
-                if(Mathf.Abs(perfectCharge - charge) <= chargeThreshold)
+                if (Mathf.Abs(perfectCharge - charge) <= chargeThreshold)
                 {
                     shotDistance = weaponRange;
                     Debug.Log("Perfect!");
@@ -78,18 +78,19 @@ public class ArrowShooting : MonoBehaviour {
                 StartCoroutine(ShotEffect());
 
                 RaycastHit hit;
-                arrowLine.SetPosition(0, gunEnd.position); // Sets the starting position of the lineSegment to the gun end
+
+                emitter.Emit(1);
 
                 // Check for ray collisions
                 if (Physics.Raycast(gunEnd.position, gunEnd.forward, out hit, shotDistance))
                 {
                     // If collision detected, set the end of the lineSegment to the collision point
-                    arrowLine.SetPosition(1, hit.point);
                     EnemyHealth health = hit.collider.GetComponent<EnemyHealth>();
 
                     // If the thing that was hit has a health script, deal it some damage
                     if (health)
                     {
+                        //Debug.Log("Hit!");
                         health.TakeDamage(gunDamage);
                     }
 
@@ -102,7 +103,6 @@ public class ArrowShooting : MonoBehaviour {
                 else
                 {
                     // If there was not hit, just draw the line to the end of the weapons range
-                    arrowLine.SetPosition(1, gunEnd.position + (gunEnd.forward * shotDistance));
                 }
             }
             charge = baseCharge;
@@ -114,9 +114,7 @@ public class ArrowShooting : MonoBehaviour {
     // Things like audio effects for the shots can be played here
     private IEnumerator ShotEffect()
     {
-        arrowLine.enabled = true;
         yield return shotDuration;
-        arrowLine.enabled = false;
     }
 
 
