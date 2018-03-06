@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ArrowShootingInst : MonoBehaviour {
+public class ArrowShooting : MonoBehaviour {
 
     // GameObjects or Components that the script is dependent on
     [HeaderAttribute("Dependencies")]
