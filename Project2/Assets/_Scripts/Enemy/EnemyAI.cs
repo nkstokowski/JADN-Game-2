@@ -13,8 +13,10 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour {
 
 	NavMeshAgent agent;
+	EnemyAttack enemyAttack;
 	GameObject player;
-	GameObject target;
+	public GameObject target;
+	GameObject currentTarget;
 
 	[HeaderAttribute("Movement Variables")]
 	public float walkSpeed = 5.0f;
@@ -31,10 +33,19 @@ public class EnemyAI : MonoBehaviour {
 		agent = GetComponent<NavMeshAgent> ();					//Get components needed for nav Mesh
 		player = GameObject.FindGameObjectWithTag("Player");	//Get Player so we can save it as a reference
 		target = GameObject.FindGameObjectWithTag ("Target");
+		enemyAttack = GetComponent<EnemyAttack> ();
+		currentTarget = target;
 
 		//Set properties of the NavMeshAgent component. (This is so we only have to touch this compenent not mess with the component in the inspector itself.)
 		agent.speed = walkSpeed;
 		agent.stoppingDistance = stopDistance;
+		SetTarget (target);
+
+		//Warp
+		NavMeshHit hit;
+		if(NavMesh.SamplePosition(transform.position, out hit, Mathf.Infinity, NavMesh.AllAreas)){
+			agent.Warp (hit.position);
+		}
 	}
 
 	void Update () {
@@ -42,19 +53,31 @@ public class EnemyAI : MonoBehaviour {
 		//If we can see the player in our line of sight, or the player is super close to us, chase it
 		if (CanSeeTarget (player.transform.position) || TargetIsInRange(player.transform.position,lineOfSightThreshold/2f)) {	//If we can see the player
 			canSeePlayer = true;
-			SetTarget (player.transform.position);		//Change our target to the player.
+			SetTarget (player);		//Change our target to the player.
 		} else {
 			canSeePlayer = false;
 			//Only reset the target to the main goal if IT ISN'T ALREADY the current target. Otherwise we will be calculating paths every frame and that's really slow.
 			if (agent.destination != target.transform.position) {
-				SetTarget (target.transform.position);
+				SetTarget (target);
 			}
 		}
 
 		//IF all of that is true, BUT we are close to our target, attack the target instead. (don't care about the player)
 		if(TargetIsInRange(target.transform.position, lineOfSightThreshold)){
-			SetTarget (target.transform.position);
+			SetTarget (target);
 		}
+
+		//IF all of that is true, BUT we are close to our target, attack the target instead. (don't care about the player)
+		if(TargetIsInRange(currentTarget.transform.position, enemyAttack.type.attackRadius)){
+			enemyAttack.attack (currentTarget);
+		}
+
+		//If our target is the main goal and our path is complete? Attack the tower and then go away.
+		if(agent.pathEndPosition == target.transform.position && agent.pathStatus == NavMeshPathStatus.PathComplete){
+			enemyAttack.attack (target);
+			Destroy (gameObject);
+		}
+
 	}
 
 
@@ -62,12 +85,13 @@ public class EnemyAI : MonoBehaviour {
 //HELPER FUNCTIONS ---- Used for tracking player, and checking for player detection.
 
 	//Simple helper function to set the target of the agent.
-	void SetTarget(Vector3 _target){
-		agent.SetDestination (_target);
+	void SetTarget(GameObject _target){
+		currentTarget = _target;
+		agent.SetDestination (currentTarget.transform.position);
 	}
 
 	//Check to see if a target is in range of us
-	bool TargetIsInRange(Vector3 target, float distance){
+	public bool TargetIsInRange(Vector3 target, float distance){
 		if(Vector3.SqrMagnitude(target-transform.position) <= distance){
 			return true;
 		}
