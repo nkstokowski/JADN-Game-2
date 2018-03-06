@@ -30,8 +30,6 @@ public class SpikeTrap : MonoBehaviour {
 		
 	void OnTriggerEnter(Collider other){
 
-		Debug.Log ("Trap");
-
 		float distance = Vector3.Distance (other.gameObject.transform.position, transform.position);
 		if(distance <= radius && other.gameObject.tag == "Enemy"){
 			ApplyTrapEffect (other.gameObject);
@@ -54,7 +52,7 @@ public class SpikeTrap : MonoBehaviour {
 
 	}
 
-	void CheckBroken(){
+	bool CheckBroken(){
 		if(health <= 0.0f){
 			return true;
 		}
