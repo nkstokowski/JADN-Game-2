@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class EnemyManager : MonoBehaviour {
@@ -9,6 +10,7 @@ public class EnemyManager : MonoBehaviour {
 	public float spawnRadius = 50f;
 	public int maxEnemyCount = 100;
 	public GameObject enemyTransform;
+	public GameObject worldOrigin;
 
 	[HeaderAttribute("Spawner Variables")]
 	public float spawnTime = 2.5f;
@@ -37,34 +39,22 @@ public class EnemyManager : MonoBehaviour {
 		{
 			for (int i = 0; i < enemiesPerSpawn; i++)
 			{
-				//Instantiate the enemy
-				Vector3 position = Vector3.zero;
-				//Set default rotation
-				Quaternion spawnRotation = Quaternion.identity;
-
-				GameObject temp = Instantiate (enemyTransform, position, spawnRotation) as GameObject;
+				GameObject temp = Instantiate (enemyTransform, SetEnemyPositionUntilNotColliding(spawnRadius),Quaternion.identity) as GameObject;
 				enemies.Add (temp);
-
-				//Change this when we decide how to set the enemy type.
-				//temp.GetComponent<EnemyAttack> ().type = enemyTypes[0];
-
-				//Calculate position around circle 
-				temp.transform.position = SetEnemyPositionUntilNotColliding(spawnRadius, temp);
+				temp.GetComponent<EnemyAttack> ().type = enemyTypes [0];
 			}
 			yield return new WaitForSeconds (spawnTime);
 		}
 	}
 
 	//Recursivley sets the position of the object further and further away if the spawn position is colliding with another object.
-	Vector3 SetEnemyPositionUntilNotColliding(float radius, GameObject temp){
+	Vector3 SetEnemyPositionUntilNotColliding(float radius){
+
 		var angle = Random.Range(0,360);
 		float x = Mathf.Cos (angle) * radius;
 		float z = Mathf.Sin (angle) * radius;
-		if(Physics.Raycast(new Ray(temp.transform.position,temp.transform.forward),0.05f)){
-			SetEnemyPositionUntilNotColliding (radius * 1.05f, temp);
-		}
 
-		return new Vector3(x,1.0f,z);	
+		return new Vector3(worldOrigin.transform.position.x + x,worldOrigin.transform.position.y,worldOrigin.transform.position.z + z);	
 	}
 
 }

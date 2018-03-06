@@ -13,4 +13,18 @@ public class EnemyAttack : MonoBehaviour {
 		damage = type.damage;
 		attackRadius = type.attackRadius;
 	}
+
+	public void attack(GameObject target){
+		if(target.tag == "Target"){
+			TowerHealth tH = target.GetComponent<TowerHealth> ();
+			tH.TakeDamage (damage);
+			return;
+		}
+		if(target.tag == "Player"){
+			PlayerHealth pH = target.GetComponent<PlayerHealth> ();
+			pH.TakeDamage (damage);
+			return;
+		}
+	}
+
 }
