@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 23540472385524990}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ Transform:
   m_GameObject: {fileID: 1359576074552144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.2249548}
-  m_LocalScale: {x: 0.9262845, y: 0.92628473, z: 0.92628473}
+  m_LocalScale: {x: 0.5779303, y: 0.5779304, z: 0.5779304}
   m_Children: []
   m_Father: {fileID: 4934978187902360}
   m_RootOrder: 0
@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654351257313818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4, y: 30.06, z: 10}
+  m_LocalPosition: {x: 0, y: 30.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4357346684882512}
@@ -297,13 +297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f40548c8b74374489011c0db6d875b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagerObj: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
-    type: 2}
+  gameManagerObj: {fileID: 0}
   arrowObject: {fileID: 1831164234548442, guid: 94e71e419f101514595f5679da415dcf,
     type: 2}
-  chargeMeter: {fileID: 114050539381962378, guid: 8654152e8865bc94fbdc573f2bf87d46,
-    type: 2}
-  arrowDamage: 100
+  chargeMeter: {fileID: 0}
+  arrowDamage: 50
   fireRate: 0.25
   weaponRange: 50
   arrowSpeed: 50
