@@ -5,11 +5,17 @@ using UnityEngine;
 public class ShopScript : MonoBehaviour {
 
 	GameManager gameManager;
+    PlayerMovement playerMovement;
+    PlayerHealth playerHealth;
+    ArrowShooting arrowShooting;
     public GameObject shopCanvas;
 	bool isShopOpen = false;
 
 	void Start(){
 		gameManager = GameObject.Find ("Game_Manager").GetComponent<GameManager>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        arrowShooting = GameObject.Find("Player").GetComponent<ArrowShooting>();
 		shopCanvas.SetActive (false);
 	}
 
@@ -40,5 +46,20 @@ public class ShopScript : MonoBehaviour {
 		gameManager.isPaused = false;
         shopCanvas.SetActive (false);
         Time.timeScale = 1;
+    }
+
+    public void increaseHealth()
+    {
+        playerHealth.health += 25;
+    }
+
+    public void increaseSpeed()
+    {
+        playerMovement.walkSpeed += 5;
+    }
+
+    public void increaseDamage()
+    {
+        arrowShooting.arrowDamage += 25;
     }
 }
