@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		/*
 		if (Input.GetMouseButtonDown (0)) {
 			int n = Random.Range (0, 2);
 
@@ -84,7 +85,7 @@ public class Player : MonoBehaviour {
 		{
 			run = false;
 		}
-
+		*/
 		if (Input.GetKey (KeyCode.Space)) 
 		{
 			anim.SetBool ("jump", true);
@@ -102,21 +103,21 @@ public class Player : MonoBehaviour {
 		anim.SetBool("run",run);
 
 
-		float moveX = inputH *20f* Time.deltaTime;
-		float moveZ = inputV *50f* Time.deltaTime;
+		//float moveX = inputH *20f* Time.deltaTime;
+		//float moveZ = inputV *50f* Time.deltaTime;
 
-		if (moveZ <= 0f) 
+		//if (moveZ <= 0f) 
 		{
-			moveX = 0f;
+			//moveX = 0f;
 		} 
-		else if(run)
+		//else if(run)
 		{
-			moveX*=3f;
-			moveZ*=3f;
+			//moveX*=3f;
+			//moveZ*=3f;
 
 		}
 
-		rbody.velocity = new Vector3(moveX,0f,moveZ);
+		//rbody.velocity = new Vector3(moveX,0f,moveZ);
 	}
 }
 
