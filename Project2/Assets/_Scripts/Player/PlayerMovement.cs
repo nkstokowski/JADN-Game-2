@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
 			{
 				// Angle between player and mouse
 				float angle = Mathf.Atan2(playerOnScreen.y - mouseOnScreen.y, playerOnScreen.x - mouseOnScreen.x) * Mathf.Rad2Deg;
-
+				//Debug.Log (angle);
 				// Rotate
 				player.transform.rotation = Quaternion.Euler(new Vector3(0f, -angle - 90, 0f));
 			}			
