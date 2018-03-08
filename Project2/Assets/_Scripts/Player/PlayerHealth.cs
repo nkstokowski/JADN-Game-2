@@ -7,7 +7,6 @@ public class PlayerHealth : MonoBehaviour {
 	public int health = 100;
 
 	public void TakeDamage(int damage){
-		Debug.Log ("Taking Damage!");
 		health -= damage;
 		if(CheckForDeath()){
 			//End Game

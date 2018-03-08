@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 23705543551349398}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 23540472385524990}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,6 +76,8 @@ GameObject:
   - component: {fileID: 4765481140257328}
   - component: {fileID: 114449145663043442}
   - component: {fileID: 114732757734053322}
+  - component: {fileID: 136705446931380038}
+  - component: {fileID: 114938844159866758}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -313,6 +315,18 @@ MonoBehaviour:
   chargeFillColor: {r: 0, g: 1, b: 0, a: 1}
   perfectChageColor: {r: 1, g: 1, b: 1, a: 1}
   failedChargeColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &114938844159866758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654351257313818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5dd425956c284b4d96d486e0d81e667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!124 &124567423574653298
 Behaviour:
   m_ObjectHideFlags: 1
@@ -331,6 +345,19 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136705446931380038
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654351257313818}
+  m_Material: {fileID: 13400000, guid: c315ecd3097f7466dbdba2bbf4e664a9, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136846925986348904
 CapsuleCollider:

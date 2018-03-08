@@ -28,6 +28,7 @@ public class EnemyAI : MonoBehaviour {
 	public float lineOfSightThreshold = 50.0f;
 	public int fovLeft = -45;
 	public int fovRight = 45;
+	private bool isAttacking = false;
 
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();					//Get components needed for nav Mesh
@@ -67,17 +68,22 @@ public class EnemyAI : MonoBehaviour {
 			SetTarget (target);
 		}
 
-		//IF all of that is true, BUT we are close to our target, attack the target instead. (don't care about the player)
-		if(TargetIsInRange(currentTarget.transform.position, enemyAttack.type.attackRadius)){
-			enemyAttack.attack (currentTarget);
+		//IF we are in range of the current target to attack them.
+		if(TargetIsInRange(currentTarget.transform.position, enemyAttack.type.attackRadius) && !isAttacking){
+			isAttacking = true;
+			StartCoroutine (AttackTarget ());
 		}
-
-		//If our target is the main goal and our path is complete? Attack the tower and then go away.
-		if(agent.pathEndPosition == target.transform.position && agent.pathStatus == NavMeshPathStatus.PathComplete){
-			enemyAttack.attack (target);
-			Destroy (gameObject);
+		else{
+			StopCoroutine ("AttackTarget");
 		}
+	}
 
+	//Temporary attack timer so it doesn't spam every frame.
+	//Need to discuss how to deal with enemy attacks.
+	public IEnumerator AttackTarget() {
+		yield return new WaitForSeconds (.25f);
+		enemyAttack.attack (currentTarget);
+		isAttacking = false;
 	}
 
 

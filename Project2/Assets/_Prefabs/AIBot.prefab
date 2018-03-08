@@ -133,8 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type:
     type: 0
-    damage: 0
-    attackRadius: 0
+    damage: 10
+    attackRadius: 5
 --- !u!114 &114973157984341156
 MonoBehaviour:
   m_ObjectHideFlags: 1

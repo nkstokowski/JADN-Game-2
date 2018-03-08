@@ -16,13 +16,13 @@ public class EnemyAttack : MonoBehaviour {
 
 	public void attack(GameObject target){
 		if(target.tag == "Target"){
-			TowerHealth tH = target.GetComponent<TowerHealth> ();
-			//tH.TakeDamage (damage);
+			Debug.Log ("Attacking Tower");
+			target.GetComponent<TowerHealth> ().TakeDamage (damage);
+			Destroy (gameObject);
 			return;
 		}
 		if(target.tag == "Player"){
-			PlayerHealth pH = target.GetComponent<PlayerHealth> ();
-			//pH.TakeDamage (damage);
+			target.GetComponent<PlayerHealth> ().TakeDamage (damage);
 			return;
 		}
 	}
