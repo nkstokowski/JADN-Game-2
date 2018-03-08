@@ -24,15 +24,6 @@ public class Player : MonoBehaviour {
 	void Update ()
 	{
 		/*
-		if (Input.GetMouseButtonDown (0)) {
-			int n = Random.Range (0, 2);
-
-			if (n == 0) {
-				anim.Play ("Dame_01", -1, 0F);
-			} else {
-				anim.Play ("Dame_02", -1, 0F);
-			}
-		}
 			if (Input.GetKeyDown ("1")) {
 				anim.Play ("Attack_01", -1, 0F);
 			}
@@ -77,6 +68,16 @@ public class Player : MonoBehaviour {
 			if (Input.GetKeyDown ("y")) {
 				anim.Play ("Crouch_Move_R", -1, 0F);
 			}
+			*/
+
+		if (Input.GetMouseButtonDown (0)) {
+			anim.Play ("Attack_01", -1, 0F);
+		}
+
+		if (Input.GetMouseButton (1)) {
+			anim.Play ("Attack_06", -1, 0F);
+		}
+
 		if(Input.GetKey(KeyCode.LeftShift)) 
 		{
 			run = true;
@@ -85,7 +86,7 @@ public class Player : MonoBehaviour {
 		{
 			run = false;
 		}
-		*/
+
 		if (Input.GetKey (KeyCode.Space)) 
 		{
 			anim.SetBool ("jump", true);
@@ -95,27 +96,39 @@ public class Player : MonoBehaviour {
 			anim.SetBool ("jump",false);
 		}
 
-		inputH = Input.GetAxis ("Horizontal");
-		inputV = Input.GetAxis ("Vertical");
+		Vector2 playerOnScreen = Camera.main.WorldToViewportPoint (transform.position);
+		Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+		float angle = Mathf.Atan2(playerOnScreen.y - mouseOnScreen.y, playerOnScreen.x - mouseOnScreen.x) * Mathf.Rad2Deg;
+		//Debug.Log (angle);
+		if (angle >= -135f && angle <= -45f) {
+			//Debug.Log ("Reached");
+			inputH = Input.GetAxis ("Horizontal");
+			inputV = Input.GetAxis ("Vertical");
+		}
+
+		else if (angle >= -45 && angle <= 45) {
+			inputH = Input.GetAxis ("Vertical Invert");
+			inputV = Input.GetAxis ("Horizontal Invert");
+		}
+
+		else if (angle >= 45f && angle <= 135f) {
+			//Debug.Log ("Reached");
+			inputH = Input.GetAxis ("Horizontal Invert");
+			inputV = Input.GetAxis ("Vertical Invert");
+		}
+
+		else {
+			inputH = Input.GetAxis ("Vertical");
+			inputV = Input.GetAxis ("Horizontal");
+		}
+
 
 		anim.SetFloat("inputH",inputH);
 		anim.SetFloat("inputV",inputV);
 		anim.SetBool("run",run);
 
 
-		//float moveX = inputH *20f* Time.deltaTime;
-		//float moveZ = inputV *50f* Time.deltaTime;
 
-		//if (moveZ <= 0f) 
-		{
-			//moveX = 0f;
-		} 
-		//else if(run)
-		{
-			//moveX*=3f;
-			//moveZ*=3f;
-
-		}
 
 		//rbody.velocity = new Vector3(moveX,0f,moveZ);
 	}
