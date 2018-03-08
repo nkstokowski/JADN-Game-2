@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour {
 	EnemyAttack enemyAttack;
 	GameObject player;
 	public GameObject target;
-	GameObject currentTarget;
+	public GameObject currentTarget;
 
 	[HeaderAttribute("Movement Variables")]
 	public float walkSpeed = 5.0f;
@@ -69,7 +69,7 @@ public class EnemyAI : MonoBehaviour {
 		}
 
 		//IF we are in range of the current target to attack them.
-		if(TargetIsInRange(currentTarget.transform.position, enemyAttack.type.attackRadius) && !isAttacking){
+		if(TargetIsInRange(player.transform.position, enemyAttack.type.attackRadius) && !isAttacking){
 			isAttacking = true;
 			StartCoroutine (AttackTarget ());
 		}
@@ -86,7 +86,11 @@ public class EnemyAI : MonoBehaviour {
 		isAttacking = false;
 	}
 
-
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.tag == "Target") {
+			enemyAttack.attack (other.gameObject);	
+		}
+	}
 
 //HELPER FUNCTIONS ---- Used for tracking player, and checking for player detection.
 
