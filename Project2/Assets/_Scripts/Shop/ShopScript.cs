@@ -8,14 +8,17 @@ public class ShopScript : MonoBehaviour {
     PlayerMovement playerMovement;
     PlayerHealth playerHealth;
     ArrowShooting arrowShooting;
+    EnemyHealth enemyHealth;
     public GameObject shopCanvas;
 	bool isShopOpen = false;
+    public int money = 0;
 
 	void Start(){
 		gameManager = GameObject.Find ("Game_Manager").GetComponent<GameManager>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
         arrowShooting = GameObject.Find("Player").GetComponent<ArrowShooting>();
+        enemyHealth = GameObject.Find("AIBot").GetComponent<EnemyHealth>();
 		shopCanvas.SetActive (false);
 	}
 
@@ -61,5 +64,13 @@ public class ShopScript : MonoBehaviour {
     public void increaseDamage()
     {
         arrowShooting.arrowDamage += 25;
+    }
+
+    public void gainMoney()
+    {
+        if(enemyHealth.die == true)
+        {
+            money += 100;
+        }
     }
 }
