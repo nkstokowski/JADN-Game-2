@@ -35,11 +35,11 @@ public class ArrowMovement : MonoBehaviour {
         pierce = pierceCount;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy")
         {
-            EnemyHealth health = other.gameObject.GetComponent<EnemyHealth>();
+            EnemyHealth health = collision.gameObject.GetComponent<EnemyHealth>();
             if (health)
             {
                 Debug.Log("Hit!");
@@ -52,7 +52,7 @@ public class ArrowMovement : MonoBehaviour {
                 }
             }
         }
-        else if(other.gameObject.tag != "Player")
+        else if(collision.gameObject.tag != "Player")
         {
             fired = false;
         }

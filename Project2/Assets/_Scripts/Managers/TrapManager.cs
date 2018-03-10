@@ -14,8 +14,7 @@ public class TrapManager : MonoBehaviour {
 
 public enum TrapType{
 	Spike,
-	Tower,
-    Lightning
+	Tower
 }
 
 public enum TrapEffect{

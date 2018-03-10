@@ -62,14 +62,6 @@ MonoBehaviour:
     hasRepeatedEffect: 0
     fireRate: 0
     degradeAmount: 0
-  - type: 2
-    effect: 0
-    damage: 5
-    radius: 4
-    health: 20
-    hasRepeatedEffect: 1
-    fireRate: 1
-    degradeAmount: 0
 --- !u!114 &114476734539392272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,12 +89,11 @@ MonoBehaviour:
   maxEnemyCount: 100
   enemyTransform: {fileID: 1558818131783764, guid: d908e020798234b6b9fde08501b52694,
     type: 2}
-  worldOrigin: {fileID: 0}
   spawnTime: 2.5
   enemiesPerSpawn: 5
   currentEnemyCount: 0
   enemyTypes:
   - type: 0
     damage: 15
-    attackRadius: 5
+    attackRadius: 2.5
   enemies: []

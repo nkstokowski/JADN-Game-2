@@ -8,10 +8,10 @@ public class ArrowShooting : MonoBehaviour {
     // GameObjects or Components that the script is dependent on
     [HeaderAttribute("Dependencies")]
     public GameObject gameManagerObj;
+    public Transform gunEnd;
     public GameObject arrowObject;
     public Slider chargeMeter;
-    private Transform gunEnd;
-    private Image chargeFill;
+    public Image chargeFill;
     private GameManager manager;
     private LineRenderer arrowLine;
 
@@ -48,10 +48,6 @@ public class ArrowShooting : MonoBehaviour {
         {
             manager = gameManagerObj.GetComponent<GameManager>();
         }
-
-        gunEnd = transform.Find("Cylinder").Find("Sphere");
-        Transform fillArea = chargeMeter.transform.Find("Fill Area");
-        chargeFill = fillArea.Find("Fill").GetComponent<Image>();
     }
 
     void Update()
