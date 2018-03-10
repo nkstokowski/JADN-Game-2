@@ -6,7 +6,6 @@ public class EnemyHealth : MonoBehaviour {
 
 	//Manager Access
 	EnemyManager enemyManager;
-    
 
 
 	void Start(){
@@ -15,10 +14,9 @@ public class EnemyHealth : MonoBehaviour {
 
 	public float currentHealth = 100.0f;
 	const float MAX_HEALTH = 100.0f;
-    public bool die = false;
 
-    //Take some value of damage. (Can also be used to heal as param can be +/-).
-    public void TakeDamage(float damage){
+	//Take some value of damage. (Can also be used to heal as param can be +/-).
+	public void TakeDamage(float damage){
 		currentHealth -= damage;
 		CheckForDeath ();
 	}
@@ -40,7 +38,6 @@ public class EnemyHealth : MonoBehaviour {
 
 	//What to do when this enemy dies.
 	void Die(){
-        die = true;
 		enemyManager.enemies.Remove (this.gameObject);	//Remove manager reference to this enemy
 
 		//Maybe play some animation / Sound / Effect?
