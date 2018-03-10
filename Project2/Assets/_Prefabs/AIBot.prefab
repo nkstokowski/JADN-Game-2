@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a002de42987f4027bacb5c295bdaba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   walkSpeed: 3.5
   chaseSpeed: 5.5
   stopDistance: 2
@@ -134,7 +135,6 @@ MonoBehaviour:
     type: 0
     damage: 0
     attackRadius: 0
-  attackRadius: 0
 --- !u!114 &114973157984341156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,7 +154,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1558818131783764}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1
   m_Height: 2

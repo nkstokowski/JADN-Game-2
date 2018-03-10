@@ -10,7 +10,7 @@ public class SpikeTrap : MonoBehaviour {
 	float radius;
 	float degradeAmount;
 	float health;
-	TrapType type;
+    TrapType type;
 
 	void Start(){
 
