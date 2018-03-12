@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.57482487, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -30381,6 +30381,11 @@ Prefab:
       propertyPath: worldOrigin
       value: 
       objectReference: {fileID: 1142459051}
+    - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: enemiesPerSpawn
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b9a34a4298a3457593aaa239788043f, type: 2}
   m_IsPrefabParent: 0
@@ -36590,7 +36595,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4765481140257328, guid: 2d6d3139b1fbf426695b79f2c198e379, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4765481140257328, guid: 2d6d3139b1fbf426695b79f2c198e379, type: 2}
       propertyPath: m_LocalPosition.y
@@ -36630,6 +36635,21 @@ Prefab:
       propertyPath: chargeMeter
       value: 
       objectReference: {fileID: 1909071668}
+    - target: {fileID: 114093331281536264, guid: 2d6d3139b1fbf426695b79f2c198e379,
+        type: 2}
+      propertyPath: blinkDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114093331281536264, guid: 2d6d3139b1fbf426695b79f2c198e379,
+        type: 2}
+      propertyPath: blinkSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114093331281536264, guid: 2d6d3139b1fbf426695b79f2c198e379,
+        type: 2}
+      propertyPath: blinkThreshold
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d6d3139b1fbf426695b79f2c198e379, type: 2}
   m_IsPrefabParent: 0
