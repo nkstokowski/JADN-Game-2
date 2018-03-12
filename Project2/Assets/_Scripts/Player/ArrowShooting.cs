@@ -12,7 +12,7 @@ public class ArrowShooting : MonoBehaviour {
     public Slider chargeMeter;
     private Transform gunEnd;
     private Image chargeFill;
-    private GameManager manager;
+    private Pause pauseManager;
     private LineRenderer arrowLine;
 
     // Variables that affect the shooting
@@ -46,7 +46,7 @@ public class ArrowShooting : MonoBehaviour {
         }
         else
         {
-            manager = gameManagerObj.GetComponent<GameManager>();
+			pauseManager = gameManagerObj.GetComponent<Pause>();
         }
 
         gunEnd = transform.Find("Cylinder").Find("Sphere");
@@ -80,7 +80,7 @@ public class ArrowShooting : MonoBehaviour {
         if (Input.GetButtonUp("Fire2"))
         {
             // Check the time to see if you can fire. Also check if the user has charged too much
-            if (Time.time > nextFire && !manager.isPaused && (perfectCharge - charge) >= -chargeThreshold)
+			if (Time.time > nextFire && !pauseManager.isPaused && (perfectCharge - charge) >= -chargeThreshold)
             {
 
                 // Check if the charge is within the limits to be considered perfect

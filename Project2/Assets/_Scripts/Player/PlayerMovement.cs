@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     [HeaderAttribute("Dependencies")]
     public GameObject player;
     public GameObject gameManagerObj;
-    private GameManager manager;
+	private Pause gameManagerPause;
 
 
     // Variables that affect the movement of the player
@@ -28,15 +28,20 @@ public class PlayerMovement : MonoBehaviour {
 		runSpeed = walkSpeed * 1.5f;
         if (!gameManagerObj)
         {
-            Debug.Log(name + ": No Game Manager Found");
+			Debug.Log(name + ": No Game Manager Found");
         }
         else
         {
-            manager = gameManagerObj.GetComponent<GameManager>();
+			gameManagerPause = gameManagerObj.GetComponent<Pause>();
         }
 	}
 
 	void Update(){
+
+		//If we are paused, don't do any moving.
+		if(gameManagerPause.isPaused){
+			return;
+		}
 
 		if(Input.GetKey(KeyCode.LeftShift)){
 			currentSpeed = runSpeed;
@@ -54,26 +59,23 @@ public class PlayerMovement : MonoBehaviour {
 		var z = Input.GetAxis ("Vertical") * Time.deltaTime * currentSpeed;
 
 		transform.Translate(x, 0.0f, z);
+	}
 
-		// Player rotation
-		if(!manager.isPaused){
+	//Throwing the rotation in the FixedUpdate means it won't be called when TimeScale == 0.
+	void FixedUpdate(){
+		//Player rotation
+		Vector2 playerOnScreen = Camera.main.WorldToViewportPoint (transform.position);
 
-            // Position of player
-            Vector2 playerOnScreen = Camera.main.WorldToViewportPoint (transform.position);
+		// Position of Mouse
+		Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
-			// Position of Mouse
-			Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+		if(Vector2.Distance(playerOnScreen, mouseOnScreen) >= cameraRadius)
+		{
+			// Angle between player and mouse
+			float angle = Mathf.Atan2(playerOnScreen.y - mouseOnScreen.y, playerOnScreen.x - mouseOnScreen.x) * Mathf.Rad2Deg;
 
-			if(Vector2.Distance(playerOnScreen, mouseOnScreen) >= cameraRadius)
-			{
-				// Angle between player and mouse
-				float angle = Mathf.Atan2(playerOnScreen.y - mouseOnScreen.y, playerOnScreen.x - mouseOnScreen.x) * Mathf.Rad2Deg;
-
-				// Rotate
-				player.transform.rotation = Quaternion.Euler(new Vector3(0f, -angle - 90, 0f));
-			}			
+			// Rotate
+			player.transform.rotation = Quaternion.Euler(new Vector3(0f, -angle - 90, 0f));
 		}
-
-
 	}
 }

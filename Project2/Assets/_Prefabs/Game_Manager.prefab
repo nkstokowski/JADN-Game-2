@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114742452705265802}
   - component: {fileID: 114476734539392272}
   - component: {fileID: 114287082473370550}
+  - component: {fileID: 114109217218772760}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -42,6 +43,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114109217218772760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550713458904134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216f99456722c4f5cba95c0c251b1711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114287082473370550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +111,7 @@ MonoBehaviour:
     type: 2}
   worldOrigin: {fileID: 0}
   spawnTime: 2.5
-  enemiesPerSpawn: 5
+  enemiesPerSpawn: 0
   currentEnemyCount: 0
   enemyTypes:
   - type: 0

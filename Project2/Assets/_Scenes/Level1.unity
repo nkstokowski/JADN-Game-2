@@ -30381,12 +30381,8 @@ Prefab:
       propertyPath: worldOrigin
       value: 
       objectReference: {fileID: 1142459051}
-    - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: enemiesPerSpawn
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114476734539392272, guid: 5b9a34a4298a3457593aaa239788043f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5b9a34a4298a3457593aaa239788043f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1662337890
@@ -36635,21 +36631,6 @@ Prefab:
       propertyPath: chargeMeter
       value: 
       objectReference: {fileID: 1909071668}
-    - target: {fileID: 114093331281536264, guid: 2d6d3139b1fbf426695b79f2c198e379,
-        type: 2}
-      propertyPath: blinkDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114093331281536264, guid: 2d6d3139b1fbf426695b79f2c198e379,
-        type: 2}
-      propertyPath: blinkSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114093331281536264, guid: 2d6d3139b1fbf426695b79f2c198e379,
-        type: 2}
-      propertyPath: blinkThreshold
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d6d3139b1fbf426695b79f2c198e379, type: 2}
   m_IsPrefabParent: 0
