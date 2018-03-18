@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	//What to do when this enemy dies.
 	void Die(){
-		enemyManager.enemies.Remove (this.gameObject);	//Remove manager reference to this enemy
+		//enemyManager.enemies.Remove (this.gameObject);	//Remove manager reference to this enemy
 
 		//Maybe play some animation / Sound / Effect?
 		//Could leave a billboard on the spot it died?
