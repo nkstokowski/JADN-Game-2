@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 23705543551349398}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 23540472385524990}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 4765481140257328}
   - component: {fileID: 114449145663043442}
   - component: {fileID: 114732757734053322}
+  - component: {fileID: 114093331281536264}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654351257313818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 30.06, z: 0}
+  m_LocalPosition: {x: 2, y: 30.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4357346684882512}
@@ -266,6 +267,22 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075818820595610}
   m_Enabled: 1
+--- !u!114 &114093331281536264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654351257313818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cb62aec5923416198c8a94fe41dc9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityKey: 101
+  blinkDistance: 10
+  blinkThreshold: 1.5
+  cooldown: 0
+  characterObject: {fileID: 1235490704068244}
 --- !u!114 &114449145663043442
 MonoBehaviour:
   m_ObjectHideFlags: 1

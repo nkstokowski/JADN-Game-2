@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ShopScript : MonoBehaviour {
 
-	GameManager gameManager;
+	Pause pauseManager;
     public GameObject shopCanvas;
 	bool isShopOpen = false;
 
 	void Start(){
-		gameManager = GameObject.Find ("Game_Manager").GetComponent<GameManager>();
+		pauseManager = GameObject.Find ("Game_Manager").GetComponent<Pause>();
 		shopCanvas.SetActive (false);
 	}
 
@@ -29,7 +29,7 @@ public class ShopScript : MonoBehaviour {
     void OpenShop()
     {
 		isShopOpen = true;
-		gameManager.isPaused = true;
+		pauseManager.isPaused = true;
         shopCanvas.SetActive (true);
         Time.timeScale = 0;
     }
@@ -37,7 +37,7 @@ public class ShopScript : MonoBehaviour {
     public void CloseShop()
 	{
 		isShopOpen = false;
-		gameManager.isPaused = false;
+		pauseManager.isPaused = false;
         shopCanvas.SetActive (false);
         Time.timeScale = 1;
     }
