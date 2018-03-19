@@ -10,7 +10,7 @@ public class ArrowShooting : MonoBehaviour {
     public GameObject gameManagerObj;
     public GameObject arrowObject;
     public Slider chargeMeter;
-    private Transform gunEnd;
+    public Transform gunEnd;
     private Image chargeFill;
     private GameManager manager;
     private LineRenderer arrowLine;
@@ -48,8 +48,6 @@ public class ArrowShooting : MonoBehaviour {
         {
             manager = gameManagerObj.GetComponent<GameManager>();
         }
-
-        gunEnd = transform.Find("Cylinder").Find("Sphere");
         Transform fillArea = chargeMeter.transform.Find("Fill Area");
         chargeFill = fillArea.Find("Fill").GetComponent<Image>();
     }
@@ -109,9 +107,12 @@ public class ArrowShooting : MonoBehaviour {
                 int pierce = (perfectShot) ? pierceCount * 2 : pierceCount;
 
                 // Create the arrow and fire it
-                GameObject arrow = Instantiate(arrowObject, transform.position, transform.rotation);
+                GameObject arrow = Instantiate(arrowObject, gunEnd.position, transform.rotation);
                 ArrowMovement arrowMV = arrow.GetComponent<ArrowMovement>();
-                arrowMV.fireArrow((gunEnd.position + (gunEnd.forward * shotDistance)), shotSpeed, damage, pierce, perfectShot);
+                Vector3 shurikenForward = Quaternion.Euler(0, -110, 0) * (gunEnd.rotation * Vector3.forward);
+                Vector3 targetPosition = gunEnd.position + (shurikenForward * shotDistance);
+                targetPosition.y = transform.position.y;
+                arrowMV.fireArrow(targetPosition, shotSpeed, damage, pierce, perfectShot);
             }
 
             // Reset the charge

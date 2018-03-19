@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (Input.GetMouseButton (1)) {
-			anim.Play ("Attack_06", -1, 0F);
+			anim.Play ("Attack_07", -1, 0.33F);
 		}
 
 		if(Input.GetKey(KeyCode.LeftShift)) 
