@@ -29,7 +29,12 @@ public class EnemyAI : MonoBehaviour {
 	public int fovLeft = -45;
 	public int fovRight = 45;
 
+	//Animation
+	public Animator anim;
+
 	void Start () {
+		anim = GetComponent<Animator> ();
+
 		agent = GetComponent<NavMeshAgent> ();					//Get components needed for nav Mesh
 		player = GameObject.FindGameObjectWithTag("Player");	//Get Player so we can save it as a reference
 		target = GameObject.FindGameObjectWithTag ("Target");
@@ -73,9 +78,14 @@ public class EnemyAI : MonoBehaviour {
 		}
 
 		//If our target is the main goal and our path is complete? Attack the tower and then go away.
-		if(agent.pathEndPosition == target.transform.position && agent.pathStatus == NavMeshPathStatus.PathComplete){
+		if (InRange()) {
 			enemyAttack.attack (target);
-			Destroy (gameObject);
+			//Debug.Log ("REACHED TARGET");
+			anim.SetBool ("jump", true);
+			anim.Play ("Attack3");
+			//Destroy (gameObject);
+		} else {
+			anim.SetBool("jump", false);
 		}
 
 	}
@@ -126,5 +136,17 @@ public class EnemyAI : MonoBehaviour {
 		agent.ResetPath ();
 	}
 
-
+	//Checks to see if two things are in range of 100
+	public bool InRange()
+	{
+		if (Vector3.SqrMagnitude (transform.position - target.transform.position) <= 25) 
+		{
+			//Debug.Log (Vector3.SqrMagnitude (enemy - transform.position));
+			//Debug.Log ("IN RANGE");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }

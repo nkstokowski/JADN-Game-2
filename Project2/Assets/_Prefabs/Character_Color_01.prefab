@@ -4136,7 +4136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1461097498166354}
-  gameManagerObj: {fileID: 0}
+  gameManagerObj: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
+    type: 2}
   currentSpeed: 0
   walkSpeed: 10
   runSpeed: 0

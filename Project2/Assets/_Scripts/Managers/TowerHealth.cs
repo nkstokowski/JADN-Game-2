@@ -48,7 +48,7 @@ public class TowerHealth : MonoBehaviour {
 	//Checks to see if two things are in range of 100
 	public bool InRange(Vector3 enemy)
 	{
-		if (Vector3.SqrMagnitude (enemy - transform.position) <= 100) 
+		if (Vector3.SqrMagnitude (enemy - transform.position) <= 30) 
 		{
 			//Debug.Log (Vector3.SqrMagnitude (enemy - transform.position));
 			//Debug.Log ("IN RANGE");
