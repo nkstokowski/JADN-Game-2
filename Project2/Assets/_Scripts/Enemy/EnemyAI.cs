@@ -75,6 +75,7 @@ public class EnemyAI : MonoBehaviour {
 
 		//IF all of that is true, BUT we are close to our target, attack the target instead. (don't care about the player)
 		if(TargetIsInRange(currentTarget.transform.position, enemyAttack.type.attackRadius)){
+			Debug.Log("Attacking!");
 			enemyAttack.attack (currentTarget);
 		}
 
