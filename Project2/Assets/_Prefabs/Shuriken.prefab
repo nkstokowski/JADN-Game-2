@@ -131,7 +131,7 @@ TrailRenderer:
   m_Time: 0.1
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.25
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -190,5 +190,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f47e67db8cce3d4793dd0cc67af246b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalTrail: {fileID: 2100000, guid: 57bcc6ae84bc9f442b30e558493e46c6, type: 2}
-  perfectTrail: {fileID: 2100000, guid: 908be5f87b1c08644bf96b1d1d9ba332, type: 2}
+  normalTrail: {fileID: 0}
+  perfectTrail: {fileID: 0}
