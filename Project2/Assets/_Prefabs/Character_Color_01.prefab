@@ -1883,6 +1883,7 @@ GameObject:
   - component: {fileID: 136041192080391292}
   - component: {fileID: 114745636273365136}
   - component: {fileID: 114114592947400268}
+  - component: {fileID: 114592914946692952}
   m_Layer: 0
   m_Name: Character_Color_01
   m_TagString: Player
@@ -4111,6 +4112,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &114592914946692952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968903699677038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cb62aec5923416198c8a94fe41dc9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityKey: 0
+  blinkDistance: 2.5
+  blinkThreshold: 2.5
+  cooldown: 5
+  characterObject: {fileID: 0}
 --- !u!114 &114595161789325832
 MonoBehaviour:
   m_ObjectHideFlags: 1
