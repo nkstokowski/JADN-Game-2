@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd0e55fa76529d4e828a98d03b7d58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDamagePercent: 0.25
-  stopDamagePercent: 1
+  startDamagePercent: 0.3
+  stopDamagePercent: 0.5
 --- !u!206 &206432420873376576
 BlendTree:
   m_ObjectHideFlags: 1
