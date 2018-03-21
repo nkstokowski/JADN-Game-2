@@ -2448,8 +2448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type:
     type: 0
-    damage: 0
-    attackRadius: 0
+    damage: 2
+    attackRadius: 2.5
 --- !u!114 &114439036343338172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2469,6 +2469,7 @@ MonoBehaviour:
   lineOfSightThreshold: 50
   fovLeft: -45
   fovRight: 45
+  anim: {fileID: 0}
 --- !u!114 &114793423060146620
 MonoBehaviour:
   m_ObjectHideFlags: 1

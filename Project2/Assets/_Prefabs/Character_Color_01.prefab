@@ -1883,6 +1883,7 @@ GameObject:
   - component: {fileID: 136041192080391292}
   - component: {fileID: 114745636273365136}
   - component: {fileID: 114114592947400268}
+  - component: {fileID: 114885083034096204}
   m_Layer: 0
   m_Name: Character_Color_01
   m_TagString: Player
@@ -4144,6 +4145,35 @@ MonoBehaviour:
   isRunning: 0
   nextPosition: {x: 0, y: 0, z: 0}
   cameraRadius: 0.001
+--- !u!114 &114885083034096204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1968903699677038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f40548c8b74374489011c0db6d875b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManagerObj: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
+    type: 2}
+  arrowObject: {fileID: 1561602217040664, guid: 559da0144ee7c84499d841be535c775f,
+    type: 2}
+  chargeMeter: {fileID: 0}
+  gunEnd: {fileID: 0}
+  arrowDamage: 100
+  fireRate: 0.25
+  weaponRange: 50
+  arrowSpeed: 50
+  pierceCount: 1
+  baseCharge: 0.1
+  perfectCharge: 0.6
+  chargeThreshold: 0.1
+  chargeRate: 0.5
+  chargeFillColor: {r: 0, g: 1, b: 0, a: 1}
+  perfectChageColor: {r: 1, g: 1, b: 1, a: 1}
+  failedChargeColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114914296924026442
 MonoBehaviour:
   m_ObjectHideFlags: 1
