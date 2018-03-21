@@ -110,7 +110,7 @@ public class ArrowShooting : MonoBehaviour {
                 GameObject arrow = Instantiate(arrowObject, gunEnd.position, transform.rotation);
                 ArrowMovement arrowMV = arrow.GetComponent<ArrowMovement>();
                 Vector3 shurikenForward = (gunEnd.rotation * Vector3.forward);
-                Vector3 targetPosition = gunEnd.position + (shurikenForward * shotDistance);
+                Vector3 targetPosition = gunEnd.position + (gunEnd.forward * shotDistance);
                 targetPosition.y = transform.position.y;
                 arrowMV.fireArrow(targetPosition, shotSpeed, damage, pierce, perfectShot);
             }
