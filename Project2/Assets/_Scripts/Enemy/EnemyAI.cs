@@ -146,8 +146,6 @@ public class EnemyAI : MonoBehaviour {
 	void StopRoute(){
 		agent.ResetPath ();
 	}
-<<<<<<< HEAD
-=======
 
 	//Checks to see if two things are in range of 100
 	public bool InRange()
@@ -162,5 +160,4 @@ public class EnemyAI : MonoBehaviour {
 			return false;
 		}
 	}
->>>>>>> Enemy_and_Pulse
 }
