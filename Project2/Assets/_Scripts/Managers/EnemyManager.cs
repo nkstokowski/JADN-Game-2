@@ -23,13 +23,13 @@ public class EnemyManager : MonoBehaviour {
 	public EnemyType[] enemyTypes;
 
 	//Non inspector variables
-	public List<GameObject> enemies = new List<GameObject>();
+	//public List<GameObject> enemies = new List<GameObject>();
 
 	void Start(){
 		StartCoroutine (SpawnWave ());	//MOVE THIS TO WHEN WE ACTUALLY START THE GAME?
 	}
 	void Update(){
-		currentEnemyCount = enemies.Count;
+		//currentEnemyCount = enemies.Count;
 	}
 
 	IEnumerator SpawnWave ()
@@ -40,7 +40,7 @@ public class EnemyManager : MonoBehaviour {
 			for (int i = 0; i < enemiesPerSpawn; i++)
 			{
 				GameObject temp = Instantiate (enemyTransform, SetEnemyPositionUntilNotColliding(spawnRadius),Quaternion.identity) as GameObject;
-				enemies.Add (temp);
+				//enemies.Add (temp);
 				temp.GetComponent<EnemyAttack> ().type = enemyTypes [0];
 			}
 			yield return new WaitForSeconds (spawnTime);

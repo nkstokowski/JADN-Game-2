@@ -109,7 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30fa1e18ad1e0d84788fd0cad7c8ce8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapManagerObject: {fileID: 0}
+  trapManagerObject: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
+    type: 2}
   lightningArcObject: {fileID: 1416706544250414, guid: 8e63dd1e647b688469873ac3b4b2f49c,
     type: 2}
   arcCount: 1
