@@ -61,18 +61,13 @@ public class LightningTower : MonoBehaviour
     void ApplyTrapEffect(GameObject enemy)
     {
 
-        for(int i=0; i < arcCount; i++)
+        EnemyAI ai = enemy.GetComponent<EnemyAI>();
+
+        for (int i = 0; i < arcCount; i++)
         {
-            if (arcs[i].myTarget() == enemy)
+            if (!arcs[i].isAttacking() && !ai.isBeingAttacked())
             {
-                break;
-            }
-            else
-            {
-                if (!arcs[i].isAttacking())
-                {
-                    arcs[i].attack(enemy);
-                }
+                arcs[i].attack(enemy);
             }
         }
 

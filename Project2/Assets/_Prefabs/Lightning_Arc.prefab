@@ -52,11 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f12806a1c714ac47ac5321e94d6c65c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacking: 0
-  radius: 1
-  damage: 1
-  target: {fileID: 0}
-  line: {fileID: 0}
   attackThreshold: 1
 --- !u!120 &120931697421171668
 LineRenderer:
@@ -71,7 +66,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1c0b5ad6944772e4899b84280ecd35dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

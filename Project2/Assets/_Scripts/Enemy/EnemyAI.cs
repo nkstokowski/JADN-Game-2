@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour {
 	GameObject player;
 	public GameObject target;
 	GameObject currentTarget;
+    private bool beingAttacked = false;
 
 	[HeaderAttribute("Movement Variables")]
 	public float walkSpeed = 5.0f;
@@ -80,12 +81,22 @@ public class EnemyAI : MonoBehaviour {
 
 	}
 
+    public bool isBeingAttacked()
+    {
+        return beingAttacked;
+    }
+
+    public void setBeingAttacked(bool attacked)
+    {
+        beingAttacked = attacked;
+    }
 
 
-//HELPER FUNCTIONS ---- Used for tracking player, and checking for player detection.
 
-	//Simple helper function to set the target of the agent.
-	void SetTarget(GameObject _target){
+    //HELPER FUNCTIONS ---- Used for tracking player, and checking for player detection.
+
+    //Simple helper function to set the target of the agent.
+    void SetTarget(GameObject _target){
 		currentTarget = _target;
 		agent.SetDestination (currentTarget.transform.position);
 	}
@@ -125,6 +136,4 @@ public class EnemyAI : MonoBehaviour {
 	void StopRoute(){
 		agent.ResetPath ();
 	}
-
-
 }
