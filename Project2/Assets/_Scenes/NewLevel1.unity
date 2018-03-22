@@ -22267,6 +22267,11 @@ Prefab:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 305677058}
+    - target: {fileID: 114466954573322646, guid: a03e3616cebfc3840840349c67954a27,
+        type: 2}
+      propertyPath: health
+      value: 98
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a03e3616cebfc3840840349c67954a27, type: 2}
   m_IsPrefabParent: 0
