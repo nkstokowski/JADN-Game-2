@@ -18328,6 +18328,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 559dafad4876b6949a5fe4b6cfea3fa2, type: 3}
   m_PrefabInternal: {fileID: 804726524}
+--- !u!1 &806130566 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1782359946609048, guid: a03e3616cebfc3840840349c67954a27,
+    type: 2}
+  m_PrefabInternal: {fileID: 1053568541}
 --- !u!1001 &814880776
 Prefab:
   m_ObjectHideFlags: 0
@@ -22270,7 +22275,7 @@ Prefab:
     - target: {fileID: 114466954573322646, guid: a03e3616cebfc3840840349c67954a27,
         type: 2}
       propertyPath: health
-      value: 98
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a03e3616cebfc3840840349c67954a27, type: 2}
@@ -29505,6 +29510,28 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c480cd43b82c9ce4c953b41cccb7d31f, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1382556739 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1204174069602848, guid: a03e3616cebfc3840840349c67954a27,
+    type: 2}
+  m_PrefabInternal: {fileID: 1053568541}
+--- !u!114 &1382556740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1382556739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bfadd001e734d4c8352734d07f39ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canUseAbility: 1
+  key: 114
+  abilityTime: 5
+  cooldown: 3
+  sword: {fileID: 806130566}
+  player: {fileID: 1382556739}
 --- !u!1001 &1383268516
 Prefab:
   m_ObjectHideFlags: 0

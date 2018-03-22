@@ -43,15 +43,6 @@ public class PlayerMovement : MonoBehaviour {
 			return;
 		}
 
-		if(Input.GetKey(KeyCode.LeftShift)){
-			currentSpeed = runSpeed;
-			isRunning = true;
-		}
-		else{
-			currentSpeed = walkSpeed;
-			isRunning = false;
-		}
-
         Vector3 currentPosition = transform.position;
 
 		// Player Movement
