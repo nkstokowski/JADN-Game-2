@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4071208130365420}
   - component: {fileID: 114742452705265802}
-  - component: {fileID: 114476734539392272}
   - component: {fileID: 114287082473370550}
   - component: {fileID: 114109217218772760}
+  - component: {fileID: 114114693566234804}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -54,6 +54,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 216f99456722c4f5cba95c0c251b1711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
+--- !u!114 &114114693566234804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550713458904134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c2792287ab74367b1338065cb71ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScore: 0
 --- !u!114 &114287082473370550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,18 +95,6 @@ MonoBehaviour:
     hasRepeatedEffect: 1
     fireRate: 1
     degradeAmount: 0
---- !u!114 &114476734539392272
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1550713458904134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8aa4035d66d643c6bc6f0d3d8715d62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPaused: 0
 --- !u!114 &114742452705265802
 MonoBehaviour:
   m_ObjectHideFlags: 1
