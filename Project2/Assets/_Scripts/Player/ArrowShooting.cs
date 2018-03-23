@@ -111,7 +111,7 @@ public class ArrowShooting : MonoBehaviour {
                 ArrowMovement arrowMV = arrow.GetComponent<ArrowMovement>();
                 Vector3 shurikenForward = Quaternion.Euler(0, -110, 0) * (gunEnd.rotation * Vector3.forward);
                 Vector3 targetPosition = gunEnd.position + (shurikenForward * shotDistance);
-                targetPosition.y = transform.position.y;
+                targetPosition.y = gunEnd.transform.position.y;
                 arrowMV.fireArrow(targetPosition, shotSpeed, damage, pierce, perfectShot);
             }
 
