@@ -20455,6 +20455,10 @@ Prefab:
       propertyPath: characterObject
       value: 
       objectReference: {fileID: 2140879871}
+    - target: {fileID: 1672624779456448, guid: a03e3616cebfc3840840349c67954a27, type: 2}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a03e3616cebfc3840840349c67954a27, type: 2}
   m_IsPrefabParent: 0
@@ -34928,6 +34932,35 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fbf85fc50fd0de4497c2b58c42ac298, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1909325068 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1672624779456448, guid: a03e3616cebfc3840840349c67954a27,
+    type: 2}
+  m_PrefabInternal: {fileID: 1100987961}
+--- !u!114 &1909325070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1909325068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d12c8514da4c14c9c7896cf2d88e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+--- !u!65 &1909325071
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1909325068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.073536076, y: 0.104349844, z: 1.0580736}
+  m_Center: {x: -0.000000015569421, y: 0.008674298, z: 0.3074193}
 --- !u!1001 &1910892954
 Prefab:
   m_ObjectHideFlags: 0
