@@ -76,16 +76,16 @@ public class ArrowShooting : MonoBehaviour {
             }
 
 
-            aimLine.SetPosition(0, transform.position);
+            aimLine.SetPosition(0, gunEnd.transform.position);
             RaycastHit hit;
             Vector3 shurikenForward = Quaternion.Euler(0, -0, 0) * (gunEnd.rotation * Vector3.forward);
-            if (Physics.Raycast(transform.position, shurikenForward, out hit, aimLineLength))
+            if (Physics.Raycast(gunEnd.transform.position, shurikenForward, out hit, aimLineLength))
             {
                 aimLine.SetPosition(1, hit.point);
             }
             else
             {
-                aimLine.SetPosition(1, transform.forward * aimLineLength);
+                aimLine.SetPosition(1, gunEnd.transform.forward * aimLineLength);
             }
             aimLine.enabled = true;
         }

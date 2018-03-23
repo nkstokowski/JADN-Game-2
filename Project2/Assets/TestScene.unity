@@ -1028,6 +1028,7 @@ MonoBehaviour:
   maxEnemyCount: 100
   enemyTransform: {fileID: 1558818131783764, guid: d908e020798234b6b9fde08501b52694,
     type: 2}
+  worldOrigin: {fileID: 0}
   spawnTime: 2.5
   enemiesPerSpawn: 0
   currentEnemyCount: 0
@@ -1044,7 +1045,6 @@ MonoBehaviour:
   - type: 3
     damage: 25
     attackRadius: 2
-  enemies: []
 --- !u!4 &824829461
 Transform:
   m_ObjectHideFlags: 0
@@ -1069,7 +1069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8aa4035d66d643c6bc6f0d3d8715d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPaused: 0
 --- !u!1 &882911200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,6 +1631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 576002824}
+  gameManagerObj: {fileID: 0}
   currentSpeed: 0
   walkSpeed: 10
   runSpeed: 0
@@ -1664,12 +1664,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5920d3a7bb28edb44bca343a9d71dc17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunDamage: 1
-  fireRate: 0.25
-  weaponRange: 50
-  hitForce: 100
-  gunEnd: {fileID: 891335780}
-  singleFire: 0
 --- !u!120 &1127343944
 LineRenderer:
   m_ObjectHideFlags: 0
