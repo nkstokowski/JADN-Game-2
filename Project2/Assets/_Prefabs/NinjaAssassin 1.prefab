@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 114793423060146620}
   - component: {fileID: 54280144044343636}
   - component: {fileID: 114070968369608862}
+  - component: {fileID: 136266143198511410}
   m_Layer: 0
   m_Name: NinjaAssassin 1
   m_TagString: Enemy
@@ -2469,6 +2470,7 @@ MonoBehaviour:
   lineOfSightThreshold: 50
   fovLeft: -45
   fovRight: 45
+  anim: {fileID: 0}
 --- !u!114 &114793423060146620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2481,6 +2483,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 100
+--- !u!136 &136266143198511410
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523021004985432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &137139648620972418
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
