@@ -41,7 +41,7 @@ public class TowerHealth : MonoBehaviour {
 		Instantiate (effect, new Vector3(transform.position.x, transform.position.y + 8, transform.position.z), Quaternion.identity);
 		//Invoke ("RemoveAllEnemies", 8);
 		Invoke ("DestroyExcess", 11);
-
+		Debug.Log (health);
 		//DestroyAllEnemies();
 	}
 
@@ -81,6 +81,7 @@ public class TowerHealth : MonoBehaviour {
 		foreach (GameObject o in targets) {
 			if (InRange(o.transform.position)) 
 			{
+				health -= 1;
 				Destroy (o);
 			}
 		}
@@ -88,7 +89,7 @@ public class TowerHealth : MonoBehaviour {
 	public void TakeDamage(int damage){
 		health -= damage;
 		if(CheckForDeath()){
-			//End Game
+			//GAME OVER!!!!
 		}
 		else{
 			return;
