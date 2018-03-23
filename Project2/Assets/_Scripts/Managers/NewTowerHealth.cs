@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TowerHealth : MonoBehaviour {
+public class NewTowerHealth : MonoBehaviour {
 
 	public int health = 100;
 	public GameObject manager;

@@ -17,7 +17,8 @@ public class EnemyAttack : MonoBehaviour {
 	public void attack(GameObject target){
 		if(target.tag == "Target"){
 			TowerHealth tH = target.GetComponent<TowerHealth> ();
-			//tH.TakeDamage (damage);
+			tH.health -= 1;
+			Debug.Log (tH.health);
 			return;
 		}
 		if(target.tag == "Player"){

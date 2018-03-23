@@ -7,6 +7,16 @@ public class Player : MonoBehaviour {
 	public Animator anim;
 	public Rigidbody rbody;
 
+    [HeaderAttribute("Melee Attack")]
+    public string meleeAnimation = "Attack_01";
+    public float meleeOffset = 0.0f;
+
+    [HeaderAttribute("Ranged Attack")]
+    public string rangedAnimation = "Attack_07";
+    public float rangedOffset = 0.33f;
+
+    private bool wait = true;
+
 	private float inputH;
 	private float inputV;
 	private bool run;
@@ -70,12 +80,19 @@ public class Player : MonoBehaviour {
 			}
 			*/
 
-		if (Input.GetMouseButtonDown (0)) {
-			anim.Play ("Attack_01", -1, 0F);
+		if (Input.GetMouseButtonDown (0) && wait == true) {
+			anim.Play (meleeAnimation, -1, meleeOffset);
+
+			//anim.CrossFade ("Idle_Weapon", .3f);
+		}
+		if (AnimatorIsPlaying (meleeAnimation)) {
+			wait = false;
+		} else {
+			wait = true;
 		}
 
 		if (Input.GetMouseButton (1)) {
-			anim.Play ("Attack_07", -1, 0.33F);
+			anim.Play (rangedAnimation, -1, rangedOffset);
 		}
 
 		if(Input.GetKey(KeyCode.LeftShift)) 
@@ -132,6 +149,14 @@ public class Player : MonoBehaviour {
 
 		//rbody.velocity = new Vector3(moveX,0f,moveZ);
 	}
+	bool AnimatorIsPlaying(){
+		return anim.GetCurrentAnimatorStateInfo(0).length >
+			anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+	}
+	bool AnimatorIsPlaying(string stateName){
+		return AnimatorIsPlaying() && anim.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+	}
+
 }
 
 

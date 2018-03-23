@@ -13,7 +13,7 @@ public class ArrowShooting : MonoBehaviour {
     public Transform gunEnd;
     private Image chargeFill;
     private Pause pauseManager;
-    private LineRenderer arrowLine;
+    private LineRenderer aimLine;
 
     // Variables that affect the shooting
     [HeaderAttribute("Shooting Variables")]
@@ -26,6 +26,7 @@ public class ArrowShooting : MonoBehaviour {
     private float shotDistance = 0.0f;
     private float shotSpeed = 50.0f;
     private bool perfectShot = false;
+    private float aimLineLength = 50f;
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
 
     [HeaderAttribute("Charge Shot Variables")]
@@ -49,6 +50,7 @@ public class ArrowShooting : MonoBehaviour {
 			pauseManager = gameManagerObj.GetComponent<Pause>();
         }
         Transform fillArea = chargeMeter.transform.Find("Fill Area");
+        aimLine = GetComponent<LineRenderer>();
         chargeFill = fillArea.Find("Fill").GetComponent<Image>();
     }
 
@@ -72,11 +74,28 @@ public class ArrowShooting : MonoBehaviour {
             {
                 chargeFill.color = failedChargeColor;
             }
+
+
+            aimLine.SetPosition(0, transform.position);
+            RaycastHit hit;
+            Vector3 shurikenForward = Quaternion.Euler(0, -0, 0) * (gunEnd.rotation * Vector3.forward);
+            if (Physics.Raycast(transform.position, shurikenForward, out hit, aimLineLength))
+            {
+                aimLine.SetPosition(1, hit.point);
+            }
+            else
+            {
+                aimLine.SetPosition(1, transform.forward * aimLineLength);
+            }
+            aimLine.enabled = true;
         }
 
         // If the user releases the button
         if (Input.GetButtonUp("Fire2"))
         {
+            aimLine.enabled = false;
+
+
             // Check the time to see if you can fire. Also check if the user has charged too much
 			if (Time.time > nextFire && !pauseManager.isPaused && (perfectCharge - charge) >= -chargeThreshold)
             {
@@ -102,14 +121,14 @@ public class ArrowShooting : MonoBehaviour {
 
                 StartCoroutine(ShotEffect());
 
-                // Set some more perfect shot variables. Eventually these will all be set in the same place
+                // Set some more perfect shot variables. Eventually these should all be set in the same place
                 int damage = (perfectShot) ? arrowDamage * 2 : arrowDamage;
                 int pierce = (perfectShot) ? pierceCount * 2 : pierceCount;
 
                 // Create the arrow and fire it
                 GameObject arrow = Instantiate(arrowObject, gunEnd.position, transform.rotation);
                 ArrowMovement arrowMV = arrow.GetComponent<ArrowMovement>();
-                Vector3 shurikenForward = Quaternion.Euler(0, -110, 0) * (gunEnd.rotation * Vector3.forward);
+                Vector3 shurikenForward = Quaternion.Euler(0, -0, 0) * (gunEnd.rotation * Vector3.forward);
                 Vector3 targetPosition = gunEnd.position + (shurikenForward * shotDistance);
                 targetPosition.y = gunEnd.transform.position.y;
                 arrowMV.fireArrow(targetPosition, shotSpeed, damage, pierce, perfectShot);

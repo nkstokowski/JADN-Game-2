@@ -26,6 +26,10 @@ public class LightningArc : MonoBehaviour {
         {
             attacking = false;
             line.enabled = false;
+            if (target)
+            {
+                target.GetComponent<EnemyAI>().setBeingAttacked(false);
+            }
             target = null;
         }
 
@@ -54,6 +58,7 @@ public class LightningArc : MonoBehaviour {
         attacking = true;
         line.SetPosition(0, transform.position);
         line.enabled = true;
+        target.GetComponent<EnemyAI>().setBeingAttacked(true);
     }
 
     // return if attacking

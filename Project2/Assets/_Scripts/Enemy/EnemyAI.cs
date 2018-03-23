@@ -16,7 +16,9 @@ public class EnemyAI : MonoBehaviour {
 	EnemyAttack enemyAttack;
 	GameObject player;
 	public GameObject target;
+	TowerHealth towerHealth;// = target.GetComponent<TowerHealth>();
 	GameObject currentTarget;
+    private bool beingAttacked = false;
 
 	[HeaderAttribute("Movement Variables")]
 	public float walkSpeed = 5.0f;
@@ -29,10 +31,15 @@ public class EnemyAI : MonoBehaviour {
 	public int fovLeft = -45;
 	public int fovRight = 45;
 
+	//Animation
+	public Animator anim;
+
 	void Start () {
+		anim = GetComponent<Animator> ();
 		agent = GetComponent<NavMeshAgent> ();					//Get components needed for nav Mesh
 		player = GameObject.FindGameObjectWithTag("Player");	//Get Player so we can save it as a reference
 		target = GameObject.FindGameObjectWithTag ("Target");
+		towerHealth = target.GetComponent<TowerHealth>();
 		enemyAttack = GetComponent<EnemyAttack> ();
 		currentTarget = target;
 
@@ -53,12 +60,20 @@ public class EnemyAI : MonoBehaviour {
 		//If we can see the player in our line of sight, or the player is super close to us, chase it
 		if (CanSeeTarget (player.transform.position) || TargetIsInRange(player.transform.position,lineOfSightThreshold/2f)) {	//If we can see the player
 			canSeePlayer = true;
-			SetTarget (player);		//Change our target to the player.
+			SetTarget (player);//Change our target to the player.
+			if (InRange2 ()) {
+				anim.SetBool("attack", true);
+				anim.Play ("Attack2");
+			}
 		} else {
 			canSeePlayer = false;
+			anim.SetBool("attack", false);
+			//anim.Play ("Walk");
 			//Only reset the target to the main goal if IT ISN'T ALREADY the current target. Otherwise we will be calculating paths every frame and that's really slow.
 			if (agent.destination != target.transform.position) {
 				SetTarget (target);
+				//anim.Play ("Idle");
+
 			}
 		}
 
@@ -73,19 +88,43 @@ public class EnemyAI : MonoBehaviour {
 		}
 
 		//If our target is the main goal and our path is complete? Attack the tower and then go away.
-		if(agent.pathEndPosition == target.transform.position && agent.pathStatus == NavMeshPathStatus.PathComplete){
-			enemyAttack.attack (target);
-			Destroy (gameObject);
+		if (InRange()) {
+			
+			//Debug.Log ("REACHED TARGET");
+			anim.SetBool ("jump", true);
+			anim.Play ("Attack3");
+
+			//WORKS ONLY THE FIRST TIME
+			if(!AnimatorIsPlaying("Attack3"))
+				{
+				enemyAttack.attack (target);
+					anim.SetBool ("jump", false);
+				}
+			//Invoke ("LostHealth", 1.367f);
+			//LoseHealth();
+			//Destroy (gameObject);
+		} else {
+			anim.SetBool("jump", false);
 		}
 
 	}
 
+    public bool isBeingAttacked()
+    {
+        return beingAttacked;
+    }
+
+    public void setBeingAttacked(bool attacked)
+    {
+        beingAttacked = attacked;
+    }
 
 
-//HELPER FUNCTIONS ---- Used for tracking player, and checking for player detection.
 
-	//Simple helper function to set the target of the agent.
-	void SetTarget(GameObject _target){
+    //HELPER FUNCTIONS ---- Used for tracking player, and checking for player detection.
+
+    //Simple helper function to set the target of the agent.
+    void SetTarget(GameObject _target){
 		currentTarget = _target;
 		agent.SetDestination (currentTarget.transform.position);
 	}
@@ -126,5 +165,44 @@ public class EnemyAI : MonoBehaviour {
 		agent.ResetPath ();
 	}
 
+	//Checks to see if two things are in range of 100
+	public bool InRange()
+	{
+		if (Vector3.SqrMagnitude (transform.position - target.transform.position) <= 25) 
+		{
+			//Debug.Log (Vector3.SqrMagnitude (enemy - transform.position));
+			//Debug.Log ("IN RANGE");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public bool InRange2()
+	{
+		if (Vector3.SqrMagnitude (transform.position - player.transform.position) <= 2) 
+		{
+			//Debug.Log (Vector3.SqrMagnitude (enemy - transform.position));
+			//Debug.Log ("IN RANGE");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
+	public void LoseHealth()
+	{
+		towerHealth.health -= 5;
+		Debug.Log (towerHealth.health);
+	}
+	//Checks to see if an animation is playing
+	bool AnimatorIsPlaying(){
+		return anim.GetCurrentAnimatorStateInfo(0).length >
+			anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+	}
+	//Specific animation
+	bool AnimatorIsPlaying(string stateName){
+		return AnimatorIsPlaying () && anim.GetCurrentAnimatorStateInfo (0).IsName (stateName);
+	}
 }
