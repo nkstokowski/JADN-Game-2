@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour {
+public class NewTowerHealth : MonoBehaviour {
 
 	public int health = 100;
 	public GameObject manager;
-	public GameObject healthSlider;
 
 	public void TakeDamage(int damage){
-		Debug.Log ("Taking Damage!");
 		health -= damage;
 		int score = manager.GetComponent<ScoreManager>().playerScore;
 		if(CheckForDeath()){
@@ -25,10 +22,6 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	void Update(){
-		healthSlider.GetComponent<Slider>().value = health;
-	}
-
 	private bool CheckForDeath(){
 		if(health <= 0){
 			return true;
@@ -37,7 +30,6 @@ public class PlayerHealth : MonoBehaviour {
 			return false;
 		}
 	}
-
 	private bool CheckForNewHighScore(int score){
 		if(manager.GetComponent<ScoreManager>().playerScore > PlayerPrefs.GetInt("playerScore")){
 			return true;
@@ -46,6 +38,4 @@ public class PlayerHealth : MonoBehaviour {
 			return false;
 		}
 	}
-
-
 }
