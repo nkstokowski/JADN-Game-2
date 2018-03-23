@@ -59,12 +59,20 @@ public class EnemyAI : MonoBehaviour {
 		//If we can see the player in our line of sight, or the player is super close to us, chase it
 		if (CanSeeTarget (player.transform.position) || TargetIsInRange(player.transform.position,lineOfSightThreshold/2f)) {	//If we can see the player
 			canSeePlayer = true;
-			SetTarget (player);		//Change our target to the player.
+			SetTarget (player);//Change our target to the player.
+			if (InRange2 ()) {
+				anim.SetBool("attack", true);
+				anim.Play ("Attack2");
+			}
 		} else {
 			canSeePlayer = false;
+			anim.SetBool("attack", false);
+			anim.Play ("Walk");
 			//Only reset the target to the main goal if IT ISN'T ALREADY the current target. Otherwise we will be calculating paths every frame and that's really slow.
 			if (agent.destination != target.transform.position) {
 				SetTarget (target);
+				//anim.Play ("Idle");
+
 			}
 		}
 
@@ -151,6 +159,18 @@ public class EnemyAI : MonoBehaviour {
 	public bool InRange()
 	{
 		if (Vector3.SqrMagnitude (transform.position - target.transform.position) <= 25) 
+		{
+			//Debug.Log (Vector3.SqrMagnitude (enemy - transform.position));
+			//Debug.Log ("IN RANGE");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public bool InRange2()
+	{
+		if (Vector3.SqrMagnitude (transform.position - player.transform.position) <= 2) 
 		{
 			//Debug.Log (Vector3.SqrMagnitude (enemy - transform.position));
 			//Debug.Log ("IN RANGE");

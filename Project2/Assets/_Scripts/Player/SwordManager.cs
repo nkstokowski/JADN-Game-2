@@ -18,6 +18,7 @@ public class SwordManager : StateMachineBehaviour
         {
             swordObject = GameObject.FindWithTag("Sword");
             swordCollider = swordObject.GetComponent<BoxCollider>();
+			Debug.Log (swordCollider);
         }
     }
 

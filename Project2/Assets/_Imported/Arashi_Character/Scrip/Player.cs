@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 	
 	public Animator anim;
 	public Rigidbody rbody;
+	private bool wait = true;
 
 	private float inputH;
 	private float inputV;
@@ -70,8 +71,15 @@ public class Player : MonoBehaviour {
 			}
 			*/
 
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0) && wait == true) {
 			anim.Play ("Attack_01", -1, 0F);
+
+			//anim.CrossFade ("Idle_Weapon", .3f);
+		}
+		if (AnimatorIsPlaying ("Attack_01")) {
+			wait = false;
+		} else {
+			wait = true;
 		}
 
 		if (Input.GetMouseButton (1)) {
@@ -132,6 +140,14 @@ public class Player : MonoBehaviour {
 
 		//rbody.velocity = new Vector3(moveX,0f,moveZ);
 	}
+	bool AnimatorIsPlaying(){
+		return anim.GetCurrentAnimatorStateInfo(0).length >
+			anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+	}
+	bool AnimatorIsPlaying(string stateName){
+		return AnimatorIsPlaying() && anim.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+	}
+
 }
 
 
