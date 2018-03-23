@@ -9,6 +9,7 @@ public class SwordManager : StateMachineBehaviour
     public float stopDamagePercent = 0.5f;
     private GameObject swordObject;
     private BoxCollider swordCollider;
+    private TrailRenderer swordTrail;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -18,7 +19,7 @@ public class SwordManager : StateMachineBehaviour
         {
             swordObject = GameObject.FindWithTag("Sword");
             swordCollider = swordObject.GetComponent<BoxCollider>();
-			Debug.Log (swordCollider);
+            swordTrail = swordObject.GetComponent<TrailRenderer>();
         }
     }
 
@@ -28,6 +29,7 @@ public class SwordManager : StateMachineBehaviour
         // set sword collider to active during the specified animation time
         bool active = (stateInfo.normalizedTime >= startDamagePercent && stateInfo.normalizedTime < stopDamagePercent);
         swordCollider.enabled = active;
+        swordTrail.enabled = active;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
