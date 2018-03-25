@@ -12,6 +12,10 @@ public class EnemyHealth : MonoBehaviour {
 		enemyManager = GameObject.Find ("Game_Manager").GetComponent<EnemyManager> ();
 	}
 
+	void Update(){
+		CheckForDeath ();
+	}
+
 	public float currentHealth = 100.0f;
 	const float MAX_HEALTH = 100.0f;
 

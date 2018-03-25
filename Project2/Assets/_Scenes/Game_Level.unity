@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 781156074}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4838,12 +4838,12 @@ Prefab:
     - target: {fileID: 224342774562746144, guid: 8654152e8865bc94fbdc573f2bf87d46,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -61.7
+      value: -61.699997
       objectReference: {fileID: 0}
     - target: {fileID: 224342774562746144, guid: 8654152e8865bc94fbdc573f2bf87d46,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -7.4
+      value: -7.3999996
       objectReference: {fileID: 0}
     - target: {fileID: 224342774562746144, guid: 8654152e8865bc94fbdc573f2bf87d46,
         type: 2}
@@ -24285,6 +24285,28 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 559dafad4876b6949a5fe4b6cfea3fa2, type: 3}
   m_PrefabInternal: {fileID: 1144568689}
+--- !u!1 &1146422509 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1204174069602848, guid: 8fba6139b218d419a93af240126c7dbc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1719997743}
+--- !u!114 &1146422510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146422509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b46c92b27f0eda409a8f7e0a4df3e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 122
+  ability: {fileID: 1089594897025166, guid: 48caf0a454eaea64d8d928554b0186b4, type: 2}
+  anim: {fileID: 0}
+  rbody: {fileID: 0}
+  enemy: {fileID: 0}
+  cooldown: 5
 --- !u!1001 &1147311107
 Prefab:
   m_ObjectHideFlags: 0
@@ -36089,6 +36111,11 @@ Prefab:
       propertyPath: chargeMeter
       value: 
       objectReference: {fileID: 1470198693}
+    - target: {fileID: 114822300359715694, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fba6139b218d419a93af240126c7dbc, type: 2}
   m_IsPrefabParent: 0
