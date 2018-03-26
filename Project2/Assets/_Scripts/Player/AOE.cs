@@ -10,6 +10,7 @@ public class AOE : MonoBehaviour {
 	public Rigidbody rbody;
 	public EnemyHealth enemy;
 	public float cooldown = 5.0f;
+	public int damage = 50;
 	bool use = true;
 
 
@@ -23,7 +24,7 @@ public class AOE : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown (key) && use) {
 			//Instantiate (ability, transform.position, Quaternion.identity);
-			//DealDamage ();
+			DealDamage ();
 
 			StartCoroutine(BeginCoolDown());
 			anim.Play ("Attack_04", -1, 0F);
@@ -43,15 +44,12 @@ public class AOE : MonoBehaviour {
 	}
 	public void DealDamage()
 	{
-		Debug.Log ("Hi");
 		GameObject[] targets = GameObject.FindGameObjectsWithTag ("Enemy");
 		foreach (GameObject o in targets) {
 			if (InRange(o.transform.position)) 
 			{
-				enemy = o.GetComponent<EnemyHealth> ();
-				Debug.Log (enemy);
-				enemy.currentHealth -= 50;
-				//Destroy (o);
+				enemy = o.GetComponent<EnemyHealth> ();	
+				enemy.TakeDamage(damage);
 			}
 		}
 	}
