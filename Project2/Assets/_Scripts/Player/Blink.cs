@@ -11,6 +11,12 @@ public class Blink : MonoBehaviour {
 	public float cooldown = 5.0f;
 	bool canUseAbility = true;
 	public GameObject characterObject;
+	public GameObject manager;
+	AbilityManager abilityManager;
+
+	void Start(){
+	abilityManager = manager.GetComponent<AbilityManager>();
+	}
 
 	void Update(){
 		if(Input.GetKeyUp(abilityKey) && canUseAbility){
@@ -32,9 +38,11 @@ public class Blink : MonoBehaviour {
 	}
 
 	IEnumerator BeginCoolDown() {
+		abilityManager.DisableAbilityImage(abilityManager.blinkObject);
 		canUseAbility = false;
 		yield return new WaitForSeconds (cooldown);
 		canUseAbility = true;
+		abilityManager.EnableAbilityImage(abilityManager.blinkObject);
 	}
 
 }

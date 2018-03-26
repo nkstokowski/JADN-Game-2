@@ -14,11 +14,14 @@ public class Berserker : MonoBehaviour {
 	public float cooldown;
 	public GameObject sword;
 	public GameObject player;
+	public GameObject manager;
+	AbilityManager abilityManager;
 
 	void Start(){
 		range = player.GetComponent<ArrowShooting>();
 		melee = sword.GetComponent<SwordAttack>();
 		movement = player.GetComponent<PlayerMovement>();
+		abilityManager = manager.GetComponent<AbilityManager>();
 	}
 
 	void Update(){
@@ -28,6 +31,7 @@ public class Berserker : MonoBehaviour {
 	}
 
 	public IEnumerator TriggerAbility(){
+			abilityManager.DisableAbilityImage(abilityManager.berserkserObject);
 			int storedRangeDamage = range.arrowDamage;
 			int storedMeleeDamage = melee.damage;
 			range.arrowDamage *= (int)1.5f;
@@ -44,6 +48,7 @@ public class Berserker : MonoBehaviour {
 		canUseAbility = false;
 		yield return new WaitForSeconds (cooldown);
 		canUseAbility = true;
+		abilityManager.EnableAbilityImage(abilityManager.berserkserObject);
 	}
 
 
