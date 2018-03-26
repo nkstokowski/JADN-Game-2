@@ -17,14 +17,12 @@ public class EnemyAttack : MonoBehaviour {
 	public void attack(GameObject target){
 		if(target.tag == "Target"){
 			TowerHealth tH = target.GetComponent<TowerHealth> ();
-			tH.health -= 1;
-			//Debug.Log (tH.health);
+			tH.TakeDamage(damage);
 			return;
 		}
 		if(target.tag == "Player"){
 			PlayerHealth pH = target.GetComponent<PlayerHealth> ();
-			pH.health -= 1;
-			Debug.Log (pH.health);
+			pH.TakeDamage(damage);
 			return;
 		}
 	}
