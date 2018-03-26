@@ -9,6 +9,7 @@ public class AOE : MonoBehaviour {
 	public Animator anim;
 	public Rigidbody rbody;
 	public EnemyHealth enemy;
+	public GameObject effectSpawn;
 	public float cooldown = 5.0f;
 	public int damage = 50;
 	bool use = true;
@@ -61,7 +62,7 @@ public class AOE : MonoBehaviour {
 
 	void Attack()
 	{
-		Instantiate (ability, transform.position, Quaternion.identity);
+		Instantiate (ability, effectSpawn.transform.position, Quaternion.identity);
 		DealDamage ();
 	}
 }

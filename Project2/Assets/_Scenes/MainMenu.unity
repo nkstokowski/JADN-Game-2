@@ -22094,7 +22094,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  manager: {fileID: 0}
+  effect: {fileID: 0}
+  range: 10
+  enemyList: []
 --- !u!4 &1049981970 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
@@ -30324,7 +30326,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The Last Samurai
+  m_Text: Sean's Samurai Game
 --- !u!222 &1424709938
 CanvasRenderer:
   m_ObjectHideFlags: 0
