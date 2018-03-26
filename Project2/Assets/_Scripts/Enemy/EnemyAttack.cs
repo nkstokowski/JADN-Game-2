@@ -18,7 +18,7 @@ public class EnemyAttack : MonoBehaviour {
 		if(target.tag == "Target"){
 			TowerHealth tH = target.GetComponent<TowerHealth> ();
 			tH.health -= 1;
-			Debug.Log (tH.health);
+			//Debug.Log (tH.health);
 			return;
 		}
 		if(target.tag == "Player"){

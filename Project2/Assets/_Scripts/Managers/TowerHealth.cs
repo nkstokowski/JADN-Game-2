@@ -41,7 +41,7 @@ public class TowerHealth : MonoBehaviour {
 		Instantiate (effect, new Vector3(transform.position.x, transform.position.y + 8, transform.position.z), Quaternion.identity);
 		//Invoke ("RemoveAllEnemies", 8);
 		Invoke ("DestroyExcess", 11);
-		Debug.Log (health);
+		//Debug.Log (health);
 		//DestroyAllEnemies();
 	}
 

@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 114572337620255094}
   - component: {fileID: 114064852825970924}
   - component: {fileID: 120665806833347062}
+  - component: {fileID: 114851057414518604}
   m_Layer: 0
   m_Name: NewPlayer
   m_TagString: Player
@@ -4096,7 +4097,7 @@ BoxCollider:
   m_GameObject: {fileID: 1782359946609048}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.073536076, y: 0.104349844, z: 1.0580736}
   m_Center: {x: 0.00000046126775, y: 0.008674298, z: 0.3074193}
@@ -4376,12 +4377,29 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1148591762062806}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: d809c9e4d1b9b4d3488f8df87916f25d, type: 2}
+--- !u!114 &114851057414518604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1204174069602848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b46c92b27f0eda409a8f7e0a4df3e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 122
+  ability: {fileID: 1089594897025166, guid: 48caf0a454eaea64d8d928554b0186b4, type: 2}
+  anim: {fileID: 0}
+  rbody: {fileID: 0}
+  enemy: {fileID: 0}
+  cooldown: 5
 --- !u!120 &120665806833347062
 LineRenderer:
   m_ObjectHideFlags: 1
