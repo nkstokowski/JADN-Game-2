@@ -23,7 +23,8 @@ public class EnemyAttack : MonoBehaviour {
 		}
 		if(target.tag == "Player"){
 			PlayerHealth pH = target.GetComponent<PlayerHealth> ();
-			//pH.TakeDamage (damage);
+			pH.health -= 1;
+			Debug.Log (pH.health);
 			return;
 		}
 	}

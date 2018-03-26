@@ -36124,6 +36124,11 @@ Prefab:
       propertyPath: chargeMeter
       value: 
       objectReference: {fileID: 1470198693}
+    - target: {fileID: 114822300359715694, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fba6139b218d419a93af240126c7dbc, type: 2}
   m_IsPrefabParent: 0

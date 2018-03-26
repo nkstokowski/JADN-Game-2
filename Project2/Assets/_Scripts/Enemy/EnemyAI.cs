@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour {
 	GameObject player;
 	public GameObject target;
 	TowerHealth towerHealth;// = target.GetComponent<TowerHealth>();
+	PlayerHealth playerHealth;
 	GameObject currentTarget;
     private bool beingAttacked = false;
 
@@ -40,6 +41,7 @@ public class EnemyAI : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");	//Get Player so we can save it as a reference
 		target = GameObject.FindGameObjectWithTag ("Target");
 		towerHealth = target.GetComponent<TowerHealth>();
+		playerHealth = player.GetComponent<PlayerHealth> ();
 		enemyAttack = GetComponent<EnemyAttack> ();
 		currentTarget = target;
 
@@ -64,6 +66,11 @@ public class EnemyAI : MonoBehaviour {
 			if (InRange2 ()) {
 				anim.SetBool("attack", true);
 				anim.Play ("Attack2");
+				if(!AnimatorIsPlaying("Attack2"))
+				{
+					enemyAttack.attack (player);
+					anim.SetBool ("attack", false);
+				}
 			}
 		} else {
 			canSeePlayer = false;
