@@ -16,6 +16,8 @@ public class LightningTower : MonoBehaviour
     float health;
     TrapType type = TrapType.Lightning;
 
+    public GameObject arcSpawn; 
+
     public int arcCount = 3;
     private LightningArc[] arcs;
 
@@ -43,7 +45,7 @@ public class LightningTower : MonoBehaviour
         gameObject.GetComponent<SphereCollider>().radius = radius;
         for(int i=0; i < arcCount; i++)
         {
-            GameObject temp = Instantiate(lightningArcObject, transform.position, transform.rotation);
+            GameObject temp = Instantiate(lightningArcObject, arcSpawn.transform.position, transform.rotation);
             arcs[i] = temp.GetComponent<LightningArc>();
             arcs[i].initArc(radius, damage);
         }

@@ -4249,6 +4249,7 @@ MonoBehaviour:
   cooldown: 3
   sword: {fileID: 1782359946609048}
   player: {fileID: 1204174069602848}
+  manager: {fileID: 0}
 --- !u!114 &114177896668963532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4348,8 +4349,9 @@ MonoBehaviour:
   abilityKey: 101
   blinkDistance: 2.5
   blinkThreshold: 2.5
-  cooldown: 0
+  cooldown: 2
   characterObject: {fileID: 1720433112104594}
+  manager: {fileID: 0}
 --- !u!114 &114660476177627984
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114287082473370550}
   - component: {fileID: 114109217218772760}
   - component: {fileID: 114114693566234804}
+  - component: {fileID: 114392986604322848}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -55,6 +56,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
+  resumeButton: {fileID: 0}
+  menuButton: {fileID: 0}
 --- !u!114 &114114693566234804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,6 +70,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
+  playerMoney: 0
+  playerMoneyText: {fileID: 0}
 --- !u!114 &114287082473370550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +100,17 @@ MonoBehaviour:
     hasRepeatedEffect: 1
     fireRate: 1
     degradeAmount: 0
+--- !u!114 &114392986604322848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550713458904134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e9a1381d256f4e7e8613a40084827ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114742452705265802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,16 +122,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755e17326f8d543fcb856b555dee0339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 25
+  spawnRadius: 35
   maxEnemyCount: 100
-  enemyTransform: {fileID: 1558818131783764, guid: d908e020798234b6b9fde08501b52694,
+  enemyTransform: {fileID: 1388007703786474, guid: 8dcd29c2196844239a8efb3a5a92f0b4,
     type: 2}
   worldOrigin: {fileID: 0}
   spawnTime: 2.5
-  enemiesPerSpawn: 0
+  enemiesPerSpawn: 2
   currentEnemyCount: 0
   enemyTypes:
   - type: 0
     damage: 15
     attackRadius: 5
-  enemies: []
