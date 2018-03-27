@@ -42,5 +42,6 @@ public class GameOver : MonoBehaviour {
 
 	public void Reset(){
 		PlayerPrefs.SetInt("highScore",0);
+		SetScores();
 	}
 }

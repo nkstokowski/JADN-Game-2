@@ -89,9 +89,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1343214477182092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30fa1e18ad1e0d84788fd0cad7c8ce8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfa3148a30dc4376baf631245f5a9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapManagerObject: {fileID: 0}
-  lightningArcObject: {fileID: 0}
-  arcCount: 3
+  health: 100
+  effect: {fileID: 1402685266665676, guid: 73e69fb413479b24288744ee2f44bc6c, type: 2}
+  range: 20
+  manager: {fileID: 0}
+  sliderObject: {fileID: 0}
+  enemyList: []

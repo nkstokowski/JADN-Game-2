@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Blink : MonoBehaviour {
 
@@ -13,9 +14,13 @@ public class Blink : MonoBehaviour {
 	public GameObject characterObject;
 	public GameObject manager;
 	AbilityManager abilityManager;
+	public GameObject countDownObject;
+	Text countDownText;
 
 	void Start(){
-	abilityManager = manager.GetComponent<AbilityManager>();
+		abilityManager = manager.GetComponent<AbilityManager>();
+		countDownText = countDownObject.GetComponent<Text>();
+		countDownText.enabled = false;
 	}
 
 	void Update(){
@@ -38,11 +43,27 @@ public class Blink : MonoBehaviour {
 	}
 
 	IEnumerator BeginCoolDown() {
+		StartCoroutine(CountDownText());
 		abilityManager.DisableAbilityImage(abilityManager.blinkObject);
 		canUseAbility = false;
 		yield return new WaitForSeconds (cooldown);
 		canUseAbility = true;
 		abilityManager.EnableAbilityImage(abilityManager.blinkObject);
+		StopCoroutine(CountDownText());
+		countDownText.enabled = false;
+	}
+
+	IEnumerator CountDownText(){
+		countDownText.text = cooldown.ToString();
+		countDownText.enabled = true;
+		float tempNum = cooldown;
+
+		while(tempNum >=0){
+		yield return new WaitForSeconds(1);
+		tempNum--;
+		int display = (int)tempNum;
+		countDownText.text = display.ToString();
+		}
 	}
 
 }

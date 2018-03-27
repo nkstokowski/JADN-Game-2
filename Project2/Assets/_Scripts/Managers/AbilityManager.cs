@@ -7,15 +7,18 @@ public class AbilityManager : MonoBehaviour {
 
 	public GameObject blinkObject;
 	public GameObject berserkserObject;
+	public GameObject aoeObject;
 
 	Image blinkImage;
 	Image berserkserImage;
+	Image aoeImage;
 
 	public float disabledReduction = 0.5f;
 
 	void Start(){
 		blinkImage = blinkObject.GetComponent<Image>();
 		berserkserImage = berserkserObject.GetComponent<Image>();
+		aoeImage = aoeObject.GetComponent<Image>();
 	}
 
 	public void DisableAbilityImage(GameObject abilityImage){

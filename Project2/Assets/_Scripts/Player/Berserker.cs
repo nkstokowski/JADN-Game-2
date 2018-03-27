@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Berserker : MonoBehaviour {
 
@@ -16,12 +17,16 @@ public class Berserker : MonoBehaviour {
 	public GameObject player;
 	public GameObject manager;
 	AbilityManager abilityManager;
+	public GameObject countDownObject;
+	Text countDownText;
 
 	void Start(){
 		range = player.GetComponent<ArrowShooting>();
 		melee = sword.GetComponent<SwordAttack>();
 		movement = player.GetComponent<PlayerMovement>();
 		abilityManager = manager.GetComponent<AbilityManager>();
+		countDownText = countDownObject.GetComponent<Text>();
+		countDownText.enabled = false;
 	}
 
 	void Update(){
@@ -31,24 +36,42 @@ public class Berserker : MonoBehaviour {
 	}
 
 	public IEnumerator TriggerAbility(){
-			abilityManager.DisableAbilityImage(abilityManager.berserkserObject);
-			int storedRangeDamage = range.arrowDamage;
-			int storedMeleeDamage = melee.damage;
-			range.arrowDamage *= (int)1.5f;
-			melee.damage *= (int)1.5f;
-			movement.currentSpeed = movement.runSpeed;
-			yield return new WaitForSeconds(abilityTime);
-			range.arrowDamage = storedRangeDamage;
-			melee.damage = storedMeleeDamage;
-			movement.currentSpeed = movement.walkSpeed;
-			StartCoroutine(BeginCoolDown());
+		canUseAbility = false;
+		StartCoroutine(CountDownText());
+		abilityManager.DisableAbilityImage(abilityManager.berserkserObject);
+		int storedRangeDamage = range.arrowDamage;
+		int storedMeleeDamage = melee.damage;
+		range.arrowDamage *= (int)1.5f;
+		melee.damage *= (int)1.5f;
+		movement.currentSpeed = movement.runSpeed;
+		yield return new WaitForSeconds(abilityTime);
+		range.arrowDamage = storedRangeDamage;
+		melee.damage = storedMeleeDamage;
+		movement.currentSpeed = movement.walkSpeed;
+		StartCoroutine(BeginCoolDown());
 	}
 
 	IEnumerator BeginCoolDown() {
-		canUseAbility = false;
 		yield return new WaitForSeconds (cooldown);
 		canUseAbility = true;
 		abilityManager.EnableAbilityImage(abilityManager.berserkserObject);
+		StopCoroutine(CountDownText());
+		countDownText.enabled = false;
+	}
+
+	IEnumerator CountDownText(){
+		float totalTime = cooldown + abilityTime;
+		int totalTimeFormat = (int)totalTime;
+		countDownText.text = totalTimeFormat.ToString();
+		countDownText.enabled = true;
+		float tempNum = totalTime;
+
+		while(tempNum >=0){
+		yield return new WaitForSeconds(1);
+		tempNum--;
+		int display = (int)tempNum;
+		countDownText.text = display.ToString();
+		}
 	}
 
 
