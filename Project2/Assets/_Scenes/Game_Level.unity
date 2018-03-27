@@ -6159,6 +6159,80 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c480cd43b82c9ce4c953b41cccb7d31f, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &299621131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 299621132}
+  - component: {fileID: 299621134}
+  - component: {fileID: 299621133}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &299621132
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 299621131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 635684955}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 328, y: 143}
+  m_SizeDelta: {x: 92, y: 32}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &299621133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 299621131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 238562cb90ae147f2a5b1dc5c8a247e1, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Score:'
+--- !u!222 &299621134
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 299621131}
 --- !u!1001 &300421473
 Prefab:
   m_ObjectHideFlags: 0
@@ -14096,6 +14170,7 @@ RectTransform:
   - {fileID: 347402676}
   - {fileID: 305677059}
   - {fileID: 834693700}
+  - {fileID: 299621132}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35040,11 +35115,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114287082473370550, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: traps.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4071208130365420, guid: 5b9a34a4298a3457593aaa239788043f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -35077,36 +35147,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114114693566234804, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: playerMoneyText
+      value: 
+      objectReference: {fileID: 834693701}
     - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
         type: 2}
       propertyPath: worldOrigin
       value: 
       objectReference: {fileID: 1142459051}
-    - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
+    - target: {fileID: 114630573486627392, guid: 5b9a34a4298a3457593aaa239788043f,
         type: 2}
-      propertyPath: spawnRadius
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: enemyTypes.Array.data[0].attackRadius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: isPaused
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: enemiesPerSpawn
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: enemyTransform
+      propertyPath: blinkObject
       value: 
-      objectReference: {fileID: 1388007703786474, guid: 8dcd29c2196844239a8efb3a5a92f0b4,
+      objectReference: {fileID: 1678694199}
+    - target: {fileID: 114630573486627392, guid: 5b9a34a4298a3457593aaa239788043f,
         type: 2}
+      propertyPath: berserkserObject
+      value: 
+      objectReference: {fileID: 1554503316}
     - target: {fileID: 114109217218772760, guid: 5b9a34a4298a3457593aaa239788043f,
         type: 2}
       propertyPath: resumeButton
@@ -35119,41 +35179,10 @@ Prefab:
       objectReference: {fileID: 347402675}
     - target: {fileID: 114114693566234804, guid: 5b9a34a4298a3457593aaa239788043f,
         type: 2}
-      propertyPath: playerMoneyText
+      propertyPath: scoreText
       value: 
-      objectReference: {fileID: 834693701}
-    - target: {fileID: 114287082473370550, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: traps.Array.data[2].type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114287082473370550, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: traps.Array.data[2].damage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114287082473370550, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: traps.Array.data[2].radius
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 114287082473370550, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: traps.Array.data[2].health
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114287082473370550, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: traps.Array.data[2].hasRepeatedEffect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114287082473370550, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: traps.Array.data[2].fireRate
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+      objectReference: {fileID: 299621133}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b9a34a4298a3457593aaa239788043f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1658969266 stripped
@@ -35161,20 +35190,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
     type: 2}
   m_PrefabInternal: {fileID: 1658969265}
---- !u!114 &1658969267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1658969266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9a1381d256f4e7e8613a40084827ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blinkObject: {fileID: 1678694199}
-  berserkserObject: {fileID: 1554503316}
-  disabledReduction: 0.5
 --- !u!114 &1658969268 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114109217218772760, guid: 5b9a34a4298a3457593aaa239788043f,
