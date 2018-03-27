@@ -39110,21 +39110,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114064852825970924, guid: 8fba6139b218d419a93af240126c7dbc,
-        type: 2}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 1658969266}
     - target: {fileID: 114572337620255094, guid: 8fba6139b218d419a93af240126c7dbc,
         type: 2}
       propertyPath: manager
       value: 
       objectReference: {fileID: 1658969266}
-    - target: {fileID: 114270625526734588, guid: 8fba6139b218d419a93af240126c7dbc,
-        type: 2}
-      propertyPath: chargeMeter
-      value: 
-      objectReference: {fileID: 1470198693}
     - target: {fileID: 114466954573322646, guid: 8fba6139b218d419a93af240126c7dbc,
         type: 2}
       propertyPath: manager
@@ -39135,23 +39125,19 @@ Prefab:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 305677058}
-    - target: {fileID: 114851057414518604, guid: 8fba6139b218d419a93af240126c7dbc,
+    - target: {fileID: 114270625526734588, guid: 8fba6139b218d419a93af240126c7dbc,
         type: 2}
-      propertyPath: effectSpawn
+      propertyPath: chargeMeter
       value: 
-      objectReference: {fileID: 1854944747}
-    - target: {fileID: 4490402554474346, guid: 8fba6139b218d419a93af240126c7dbc, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.113
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1470198693}
+    - target: {fileID: 114064852825970924, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1658969266}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fba6139b218d419a93af240126c7dbc, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1854944747 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1172115552815188, guid: 8fba6139b218d419a93af240126c7dbc,
-    type: 2}
-  m_PrefabInternal: {fileID: 1854944746}
 --- !u!1001 &1858973166
 Prefab:
   m_ObjectHideFlags: 0
