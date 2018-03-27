@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TowerHealth : MonoBehaviour {
 
@@ -10,17 +11,19 @@ public class TowerHealth : MonoBehaviour {
 	public float range = 10f;
 
 	public GameObject manager;
+	public GameObject sliderObject;
+	Slider slider;
 
 	public List<GameObject> enemyList = new List<GameObject>();
 
 	void Start()
 	{
 		InvokeRepeating ("Pulse", 0, 15);
+		slider = sliderObject.GetComponent<Slider>();
 	}
 	void Update()
 	{
-		
-		//Debug.Log (enemies.Count);
+		slider.value = health;
 	}
 
 	//Prevents duplication of enemies if they are being added to a list
