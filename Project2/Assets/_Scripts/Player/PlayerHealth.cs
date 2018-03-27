@@ -15,10 +15,8 @@ public class PlayerHealth : MonoBehaviour {
 		health -= damage;
 		int score = manager.GetComponent<ScoreManager>().playerScore;
 		if(CheckForDeath()){
-			if(CheckForNewHighScore(score)){
-				PlayerPrefs.SetInt("playerScore", manager.GetComponent<ScoreManager>().playerScore);
-			}
-			SceneManager.LoadScene("MainMenu");
+			PlayerPrefs.SetInt("playerScore", manager.GetComponent<ScoreManager>().playerScore);
+			SceneManager.LoadScene("GameOver");
 		}
 		else{
 			return;
@@ -37,15 +35,4 @@ public class PlayerHealth : MonoBehaviour {
 			return false;
 		}
 	}
-
-	private bool CheckForNewHighScore(int score){
-		if(manager.GetComponent<ScoreManager>().playerScore > PlayerPrefs.GetInt("playerScore")){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-
-
 }

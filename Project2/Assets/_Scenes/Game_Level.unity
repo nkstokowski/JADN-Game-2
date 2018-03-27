@@ -1609,6 +1609,7 @@ MonoBehaviour:
   health: 100
   effect: {fileID: 1402685266665676, guid: 73e69fb413479b24288744ee2f44bc6c, type: 2}
   range: 20
+  manager: {fileID: 1658969266}
   enemyList: []
 --- !u!23 &65944892
 MeshRenderer:

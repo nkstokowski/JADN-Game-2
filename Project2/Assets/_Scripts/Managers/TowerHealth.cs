@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TowerHealth : MonoBehaviour {
 
 	public int health = 100;
 	public GameObject effect;
 	public float range = 10f;
+
+	public GameObject manager;
 
 	public List<GameObject> enemyList = new List<GameObject>();
 
@@ -89,7 +92,8 @@ public class TowerHealth : MonoBehaviour {
 	public void TakeDamage(int damage){
 		health -= damage;
 		if(CheckForDeath()){
-			//GAME OVER!!!!
+			PlayerPrefs.SetInt("playerScore", manager.GetComponent<ScoreManager>().playerScore);
+			SceneManager.LoadScene("GameOver");
 		}
 		else{
 			return;
