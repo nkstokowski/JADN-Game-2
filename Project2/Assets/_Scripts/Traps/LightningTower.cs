@@ -7,6 +7,7 @@ public class LightningTower : MonoBehaviour
     [HeaderAttribute("Dependencies")]
     public GameObject trapManagerObject;
     public GameObject lightningArcObject;
+    public GameObject AttackOrigin;
     TrapManager trapManager;
 
 
@@ -43,7 +44,7 @@ public class LightningTower : MonoBehaviour
         gameObject.GetComponent<SphereCollider>().radius = radius;
         for(int i=0; i < arcCount; i++)
         {
-            GameObject temp = Instantiate(lightningArcObject, transform.position, transform.rotation);
+            GameObject temp = Instantiate(lightningArcObject, AttackOrigin.transform.position, transform.rotation);
             arcs[i] = temp.GetComponent<LightningArc>();
             arcs[i].initArc(radius, damage);
         }

@@ -37,7 +37,10 @@ public class ArrowMovement : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+
+        string otherTag = other.gameObject.tag;
+
+        if (otherTag == "Enemy")
         {
             EnemyHealth health = other.gameObject.GetComponent<EnemyHealth>();
             if (health)
@@ -52,7 +55,7 @@ public class ArrowMovement : MonoBehaviour {
                 }
             }
         }
-        else if(other.gameObject.tag != "Player")
+        else if(otherTag != "Player" && otherTag != "Tower")
         {
             fired = false;
         }

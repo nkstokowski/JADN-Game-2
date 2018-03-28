@@ -6,6 +6,7 @@ public class SniperTower : MonoBehaviour
 {
     [HeaderAttribute("Dependencies")]
     public GameObject trapManagerObject;
+    public GameObject AttackOrigin;
     private LineRenderer bulletLine;
     TrapManager trapManager;
 
@@ -42,7 +43,7 @@ public class SniperTower : MonoBehaviour
 
         gameObject.GetComponent<SphereCollider>().radius = radius;
         bulletLine = GetComponent<LineRenderer>();
-        Debug.Log("My radius: " + radius);
+        //Debug.Log("My radius: " + radius);
     }
 
     void OnTriggerEnter(Collider other)
@@ -73,10 +74,10 @@ public class SniperTower : MonoBehaviour
     void ApplyTrapEffect(GameObject enemy)
     {
         Vector3 heading = enemy.transform.position - transform.position;
-        bulletLine.SetPosition(0, transform.position);
+        bulletLine.SetPosition(0, AttackOrigin.transform.position);
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, heading, out hit, radius * 2))
+        if (Physics.Raycast(AttackOrigin.transform.position, heading, out hit, radius * 2))
         {
             EnemyHealth health = hit.collider.GetComponent<EnemyHealth>();
             if (health)

@@ -22,11 +22,12 @@ public class ArrowShooting : MonoBehaviour {
     public float weaponRange = 50f;
     public float arrowSpeed = 50.0f;
     public int pierceCount = 1;
+    public float minShotDistance = 5.0f;
     private float nextFire;
     private float shotDistance = 0.0f;
     private float shotSpeed = 50.0f;
     private bool perfectShot = false;
-    private float aimLineLength = 50f;
+    private float aimLineLength = 200f;
     private WaitForSeconds shotDuration = new WaitForSeconds(.07f);
 
     [HeaderAttribute("Charge Shot Variables")]
@@ -78,8 +79,8 @@ public class ArrowShooting : MonoBehaviour {
 
             aimLine.SetPosition(0, gunEnd.transform.position);
             RaycastHit hit;
-            Vector3 shurikenForward = Quaternion.Euler(0, -0, 0) * (gunEnd.rotation * Vector3.forward);
-            if (Physics.Raycast(gunEnd.transform.position, shurikenForward, out hit, aimLineLength))
+            Vector3 shurikenForward = Quaternion.Euler(0, 0, 0) * (gunEnd.rotation * Vector3.forward);
+            if (Physics.Raycast(gunEnd.transform.position, shurikenForward, out hit, aimLineLength) && hit.collider.gameObject.tag != "Tower")
             {
                 aimLine.SetPosition(1, hit.point);
             }
@@ -113,7 +114,7 @@ public class ArrowShooting : MonoBehaviour {
                 else
                 {
                     // On a regular shot, the current charge determines the range
-                    shotDistance = charge * weaponRange;
+                    shotDistance = (charge * weaponRange < minShotDistance) ? minShotDistance : charge * weaponRange;
                     shotSpeed = arrowSpeed;
                 }
 
