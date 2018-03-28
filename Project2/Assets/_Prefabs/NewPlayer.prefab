@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 95665436141035904}
   m_Layer: 0
   m_Name: SK_Arashi
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2528,7 +2528,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715315888640322}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25999993, y: 1.1899999, z: 0.21999995}
+  m_LocalPosition: {x: 0.027, y: 1.498, z: 0.449}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_Children: []
   m_Father: {fileID: 4959452215028898}
@@ -4157,8 +4157,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.073536076, y: 0.104349844, z: 1.0580736}
-  m_Center: {x: 0.00000046126775, y: 0.008674298, z: 0.3074193}
+  m_Size: {x: 0.46256658, y: 0.10434985, z: 1.156674}
+  m_Center: {x: 0.05268204, y: 0.008674102, z: 0.35672003}
 --- !u!81 &81686583429419676
 AudioListener:
   m_ObjectHideFlags: 1
@@ -4309,6 +4309,7 @@ MonoBehaviour:
   sword: {fileID: 1782359946609048}
   player: {fileID: 1204174069602848}
   manager: {fileID: 0}
+  countDownObject: {fileID: 0}
 --- !u!114 &114177896668963532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4338,12 +4339,13 @@ MonoBehaviour:
   arrowObject: {fileID: 1561602217040664, guid: 559da0144ee7c84499d841be535c775f,
     type: 2}
   chargeMeter: {fileID: 0}
-  gunEnd: {fileID: 4060101551552810}
+  gunEnd: {fileID: 4313781448605370}
   arrowDamage: 100
   fireRate: 0.25
   weaponRange: 50
   arrowSpeed: 50
   pierceCount: 1
+  minShotDistance: 2
   baseCharge: 0.1
   perfectCharge: 0.6
   chargeThreshold: 0.1
@@ -4363,6 +4365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
+  hit: 0
 --- !u!114 &114405145855909432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4392,6 +4395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 0
   manager: {fileID: 0}
   healthSlider: {fileID: 0}
 --- !u!114 &114572337620255094
@@ -4411,6 +4415,7 @@ MonoBehaviour:
   cooldown: 2
   characterObject: {fileID: 1720433112104594}
   manager: {fileID: 0}
+  countDownObject: {fileID: 0}
 --- !u!114 &114660476177627984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4462,6 +4467,8 @@ MonoBehaviour:
   effectSpawn: {fileID: 1172115552815188}
   cooldown: 5
   damage: 50
+  manager: {fileID: 0}
+  countDownObject: {fileID: 0}
 --- !u!120 &120665806833347062
 LineRenderer:
   m_ObjectHideFlags: 1
