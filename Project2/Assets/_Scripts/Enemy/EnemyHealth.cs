@@ -46,8 +46,14 @@ public class EnemyHealth : MonoBehaviour {
 
 		//Maybe play some animation / Sound / Effect?
 		//Could leave a billboard on the spot it died?
+		//gameObject.GetComponent<Animator> ().SetBool("bool3", true);
+		gameObject.GetComponent<Animator> ().Play ("Defend");
+		Invoke ("Death", .8f);
+	}
 
-		Destroy (gameObject);	//Destroy the gameObject.
+	void Death()
+	{
+		Destroy (gameObject);
 	}
 
 }

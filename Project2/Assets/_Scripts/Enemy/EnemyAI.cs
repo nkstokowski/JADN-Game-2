@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour {
 	TowerHealth towerHealth;// = target.GetComponent<TowerHealth>();
 	PlayerHealth playerHealth;
 	GameObject currentTarget;
+	EnemyHealth health;
     private bool beingAttacked = false;
 
 	[HeaderAttribute("Movement Variables")]
@@ -42,6 +43,7 @@ public class EnemyAI : MonoBehaviour {
 		target = GameObject.FindGameObjectWithTag ("Target");
 		towerHealth = target.GetComponent<TowerHealth>();
 		playerHealth = player.GetComponent<PlayerHealth> ();
+		health = gameObject.GetComponent<EnemyHealth> ();
 		enemyAttack = GetComponent<EnemyAttack> ();
 		currentTarget = target;
 
@@ -63,18 +65,10 @@ public class EnemyAI : MonoBehaviour {
 		if (CanSeeTarget (player.transform.position) || TargetIsInRange(player.transform.position,lineOfSightThreshold/2f)) {	//If we can see the player
 			canSeePlayer = true;
 			SetTarget (player);//Change our target to the player.
-			if (InRange2 ()) {
-				anim.SetBool("attack", true);
-				anim.Play ("Attack2");
-				if(!AnimatorIsPlaying("Attack2"))
-				{
-					enemyAttack.attack (player);
-					anim.SetBool ("attack", false);
-				}
-			}
+
 		} else {
 			canSeePlayer = false;
-			anim.SetBool("attack", false);
+
 			//anim.Play ("Walk");
 			//Only reset the target to the main goal if IT ISN'T ALREADY the current target. Otherwise we will be calculating paths every frame and that's really slow.
 			if (agent.destination != target.transform.position) {
@@ -84,16 +78,35 @@ public class EnemyAI : MonoBehaviour {
 			}
 		}
 
+		if (InRange2 ()) {
+			anim.SetBool ("attack", true);
+			anim.Play ("Attack1");
+			if (!AnimatorIsPlaying ("Attack1") && !AnimatorIsPlaying("Defend") && !AnimatorIsPlaying("Attack3") && !AnimatorIsPlaying("Hit")) {
+				enemyAttack.attack (player);
+
+				//HAS AN ISSUE WITH SWORD LOGIC
+				//player.GetComponent<Animator>().Play("Jump_loop");
+				anim.SetBool ("attack", false);
+				if (health.currentHealth <= 0) {
+					anim.Play ("Defend");
+				}
+			}
+		} else {
+			anim.SetBool("attack", false);
+		}
 		//IF all of that is true, BUT we are close to our target, attack the target instead. (don't care about the player)
 		if(TargetIsInRange(target.transform.position, lineOfSightThreshold)){
 			SetTarget (target);
 		}
 
+
+		// UNSURE WHAT THIS IS!!!
+		/*
 		//IF all of that is true, BUT we are close to our target, attack the target instead. (don't care about the player)
 		if(TargetIsInRange(currentTarget.transform.position, enemyAttack.type.attackRadius)){
 			enemyAttack.attack (currentTarget);
 		}
-
+		*/
 		//If our target is the main goal and our path is complete? Attack the tower and then go away.
 		if (InRange()) {
 			
@@ -198,11 +211,7 @@ public class EnemyAI : MonoBehaviour {
 		}
 	}
 
-	public void LoseHealth()
-	{
-		towerHealth.health -= 5;
-		Debug.Log (towerHealth.health);
-	}
+
 	//Checks to see if an animation is playing
 	bool AnimatorIsPlaying(){
 		return anim.GetCurrentAnimatorStateInfo(0).length >

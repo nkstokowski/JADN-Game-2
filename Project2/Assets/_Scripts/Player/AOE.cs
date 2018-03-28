@@ -43,15 +43,18 @@ public class AOE : MonoBehaviour {
 	}
 	public void DealDamage()
 	{
-		Debug.Log ("Hi");
+		//Debug.Log ("Hi");
 		GameObject[] targets = GameObject.FindGameObjectsWithTag ("Enemy");
 		foreach (GameObject o in targets) {
 			if (InRange(o.transform.position)) 
 			{
 				enemy = o.GetComponent<EnemyHealth> ();
-				Debug.Log (enemy);
+				o.GetComponent<Animator> ().SetBool ("bool1", true);
+				o.GetComponent<Animator> ().Play ("Hit");
+				//Debug.Log (enemy);
 				enemy.currentHealth -= 50;
 				//Destroy (o);
+				o.GetComponent<Animator> ().SetBool ("bool1", false);
 			}
 		}
 	}
