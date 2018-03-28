@@ -12460,7 +12460,6 @@ Transform:
   - {fileID: 580063066}
   - {fileID: 1093992008}
   - {fileID: 1952741494}
-  - {fileID: 1049981970}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20749,6 +20748,7 @@ GameObject:
   - component: {fileID: 994227335}
   - component: {fileID: 994227334}
   - component: {fileID: 994227333}
+  - component: {fileID: 994227337}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -20794,8 +20794,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.72794116, g: 0.1873378, b: 0.1873378, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.72794116, g: 0.1873378, b: 0.1873378, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -20810,7 +20810,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 994227334}
+  m_TargetGraphic: {fileID: 1181897815}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -20860,6 +20860,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 994227331}
+--- !u!65 &994227337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 994227331}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &994884086 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 353f97033fd0e1e42a28206aaa5f0141, type: 3}
@@ -22078,27 +22090,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e15229aec8034ce43ab222d8fe5d5a6a, type: 3}
   m_PrefabInternal: {fileID: 1045733903}
---- !u!1 &1049981967 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-  m_PrefabInternal: {fileID: 1796890223}
---- !u!114 &1049981968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1049981967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cfa3148a30dc4376baf631245f5a9fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  manager: {fileID: 0}
---- !u!4 &1049981970 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-  m_PrefabInternal: {fileID: 1796890223}
 --- !u!1 &1050857034 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: f1b581fbf0ad271438c9fa8a5d75301b, type: 3}
@@ -30324,7 +30315,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: The Last Samurai
+  m_Text: Sean's Samurai Game
 --- !u!222 &1424709938
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37317,72 +37308,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0a12896925de28246b9d71fad3914866, type: 3}
   m_PrefabInternal: {fileID: 1796702178}
---- !u!1001 &1796890223
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 594511614}
-    m_Modifications:
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 28.994507
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.4000015
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_Name
-      value: Defense
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_TagString
-      value: Target
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ed2b85b55d1d1424894351e65a96c053, type: 3}
-  m_IsPrefabParent: 0
 --- !u!1 &1798862979 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 961cda049d866cb46a6cf578f1877c25, type: 3}
@@ -39182,7 +39107,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.7294118, g: 0.1882353, b: 0.1882353, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -39197,7 +39122,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1894651588}
+  m_TargetGraphic: {fileID: 1026017317}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

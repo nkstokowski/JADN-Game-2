@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	//Manager Access
 	EnemyManager enemyManager;
+    public bool die = false;
 
 
 	void Start(){
@@ -42,6 +43,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	//What to do when this enemy dies.
 	void Die(){
+        die = true;
 		//enemyManager.enemies.Remove (this.gameObject);	//Remove manager reference to this enemy
 
 		//Maybe play some animation / Sound / Effect?
@@ -50,10 +52,15 @@ public class EnemyHealth : MonoBehaviour {
 		gameObject.GetComponent<Animator> ().Play ("Defend");
 		Invoke ("Death", .8f);
 	}
-
+		
 	void Death()
 	{
 		Destroy (gameObject);
+
+		GameObject manager = GameObject.Find ("Game_Manager");
+		manager.GetComponent<ScoreManager>().playerScore += 10;
+		Destroy (gameObject);	//Destroy the gameObject.
+
 	}
 
 }

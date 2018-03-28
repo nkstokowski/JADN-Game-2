@@ -335,6 +335,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1172115552815188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4490402554474346}
+  m_Layer: 0
+  m_Name: AOE_Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1183016255638668
 GameObject:
   m_ObjectHideFlags: 1
@@ -872,6 +887,21 @@ GameObject:
   - component: {fileID: 4766919129179038}
   m_Layer: 0
   m_Name: middle_03_r
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1475501377197934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4060101551552810}
+  m_Layer: 0
+  m_Name: GunEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2054,6 +2084,19 @@ Transform:
   m_Father: {fileID: 4032365101963654}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4060101551552810
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475501377197934}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.14, y: 1.075, z: 0.12}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_Children: []
+  m_Father: {fileID: 4444395750299642}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4060735138250250
 Transform:
   m_ObjectHideFlags: 1
@@ -2803,6 +2846,8 @@ Transform:
   m_Children:
   - {fileID: 4959452215028898}
   - {fileID: 4944276270975728}
+  - {fileID: 4060101551552810}
+  - {fileID: 4490402554474346}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2874,6 +2919,19 @@ Transform:
   - {fileID: 4515015330716054}
   m_Father: {fileID: 4035736239930444}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4490402554474346
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172115552815188}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.113, z: 0}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_Children: []
+  m_Father: {fileID: 4444395750299642}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4492229995256358
 Transform:
@@ -4241,7 +4299,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1204174069602848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72bfadd001e734d4c8352734d07f39ff, type: 3}
+  m_Script: {fileID: 11500000, guid: d1605a224bc1449e698d08a8d9ff2775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canUseAbility: 1
@@ -4250,6 +4308,7 @@ MonoBehaviour:
   cooldown: 3
   sword: {fileID: 1782359946609048}
   player: {fileID: 1204174069602848}
+  manager: {fileID: 0}
 --- !u!114 &114177896668963532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4279,7 +4338,7 @@ MonoBehaviour:
   arrowObject: {fileID: 1561602217040664, guid: 559da0144ee7c84499d841be535c775f,
     type: 2}
   chargeMeter: {fileID: 0}
-  gunEnd: {fileID: 4313781448605370}
+  gunEnd: {fileID: 4060101551552810}
   arrowDamage: 100
   fireRate: 0.25
   weaponRange: 50
@@ -4343,14 +4402,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1204174069602848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1cb62aec5923416198c8a94fe41dc9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 237192536cd0140a39d6a91f66bd7db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   abilityKey: 101
   blinkDistance: 2.5
   blinkThreshold: 2.5
-  cooldown: 0
+  cooldown: 2
   characterObject: {fileID: 1720433112104594}
+  manager: {fileID: 0}
 --- !u!114 &114660476177627984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4377,7 +4437,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1148591762062806}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
@@ -4399,7 +4459,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   rbody: {fileID: 0}
   enemy: {fileID: 0}
+  effectSpawn: {fileID: 1172115552815188}
   cooldown: 5
+  damage: 50
 --- !u!120 &120665806833347062
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwordAttack : MonoBehaviour {
 
     public int damage = 34;
+    public bool hit;
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +14,8 @@ public class SwordAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 
+        hit = false;
 
 	}
 
@@ -27,6 +28,7 @@ public class SwordAttack : MonoBehaviour {
             if (health)
             {
                 Debug.Log("Sword Hit!");
+                hit = true;
                 health.TakeDamage(damage);
             }
         }

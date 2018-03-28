@@ -100,6 +100,7 @@ public class EnemyAI : MonoBehaviour {
 		}
 
 
+
 		// UNSURE WHAT THIS IS!!!
 		/*
 		//IF all of that is true, BUT we are close to our target, attack the target instead. (don't care about the player)
@@ -107,22 +108,19 @@ public class EnemyAI : MonoBehaviour {
 			enemyAttack.attack (currentTarget);
 		}
 		*/
+
 		//If our target is the main goal and our path is complete? Attack the tower and then go away.
 		if (InRange()) {
 			
-			//Debug.Log ("REACHED TARGET");
 			anim.SetBool ("jump", true);
 			anim.Play ("Attack3");
 
 			//WORKS ONLY THE FIRST TIME
 			if(!AnimatorIsPlaying("Attack3"))
 				{
-				enemyAttack.attack (target);
+					enemyAttack.attack (target);
 					anim.SetBool ("jump", false);
 				}
-			//Invoke ("LostHealth", 1.367f);
-			//LoseHealth();
-			//Destroy (gameObject);
 		} else {
 			anim.SetBool("jump", false);
 		}
@@ -210,7 +208,6 @@ public class EnemyAI : MonoBehaviour {
 			return false;
 		}
 	}
-
 
 	//Checks to see if an animation is playing
 	bool AnimatorIsPlaying(){
