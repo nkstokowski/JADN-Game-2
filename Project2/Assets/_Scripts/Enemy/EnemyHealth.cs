@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	//Manager Access
 	EnemyManager enemyManager;
+    public bool die = false;
 
 
 	void Start(){
@@ -38,6 +39,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	//What to do when this enemy dies.
 	void Die(){
+        die = true;
 		//enemyManager.enemies.Remove (this.gameObject);	//Remove manager reference to this enemy
 
 		//Maybe play some animation / Sound / Effect?
