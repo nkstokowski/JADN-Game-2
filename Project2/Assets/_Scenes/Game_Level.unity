@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 781156074}
-  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.57482487, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1610,6 +1610,7 @@ MonoBehaviour:
   effect: {fileID: 1402685266665676, guid: 73e69fb413479b24288744ee2f44bc6c, type: 2}
   range: 20
   manager: {fileID: 1658969266}
+  sliderObject: {fileID: 305677058}
   enemyList: []
 --- !u!23 &65944892
 MeshRenderer:
@@ -19453,6 +19454,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: fd043604b87a39044a295ddaa36c97e7, type: 3}
   m_PrefabInternal: {fileID: 849749938}
+--- !u!1 &851491835 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1172115552815188, guid: 8fba6139b218d419a93af240126c7dbc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1854944746}
 --- !u!1 &861384465 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 57989d50c99e3a14ca3fee9146075861, type: 3}
@@ -35182,6 +35188,11 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 299621133}
+    - target: {fileID: 114630573486627392, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: aoeObject
+      value: 
+      objectReference: {fileID: 851491835}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b9a34a4298a3457593aaa239788043f, type: 2}
   m_IsPrefabParent: 0
@@ -39135,6 +39146,30 @@ Prefab:
       propertyPath: manager
       value: 
       objectReference: {fileID: 1658969266}
+    - target: {fileID: 1172115552815188, guid: 8fba6139b218d419a93af240126c7dbc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851057414518604, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1658969266}
+    - target: {fileID: 114064852825970924, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: countDownObject
+      value: 
+      objectReference: {fileID: 635684951}
+    - target: {fileID: 114851057414518604, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: countDownObject
+      value: 
+      objectReference: {fileID: 635684951}
+    - target: {fileID: 114572337620255094, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: countDownObject
+      value: 
+      objectReference: {fileID: 635684951}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fba6139b218d419a93af240126c7dbc, type: 2}
   m_IsPrefabParent: 0

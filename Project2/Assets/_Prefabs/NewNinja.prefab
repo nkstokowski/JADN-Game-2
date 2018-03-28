@@ -2481,7 +2481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type:
     type: 0
-    damage: 2
+    damage: 1
     attackRadius: 2.5
 --- !u!114 &114577689594930012
 MonoBehaviour:

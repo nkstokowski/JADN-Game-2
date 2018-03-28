@@ -116,7 +116,7 @@ public class EnemyAI : MonoBehaviour {
 			anim.Play ("Attack3");
 
 			//WORKS ONLY THE FIRST TIME
-			if(!AnimatorIsPlaying("Attack3"))
+			if(!AnimatorIsPlaying("Attack3") && !AnimatorIsPlaying("Hit") && !AnimatorIsPlaying("Defend") && !AnimatorIsPlaying ("Attack1") )
 				{
 					enemyAttack.attack (target);
 					anim.SetBool ("jump", false);
