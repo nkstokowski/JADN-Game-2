@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TowerHealth : MonoBehaviour {
 
@@ -8,16 +10,20 @@ public class TowerHealth : MonoBehaviour {
 	public GameObject effect;
 	public float range = 10f;
 
+	public GameObject manager;
+	public GameObject sliderObject;
+	Slider slider;
+
 	public List<GameObject> enemyList = new List<GameObject>();
 
 	void Start()
 	{
 		InvokeRepeating ("Pulse", 0, 15);
+		slider = sliderObject.GetComponent<Slider>();
 	}
 	void Update()
 	{
-		
-		//Debug.Log (enemies.Count);
+		slider.value = health;
 	}
 
 	//Prevents duplication of enemies if they are being added to a list
@@ -41,7 +47,7 @@ public class TowerHealth : MonoBehaviour {
 		Instantiate (effect, new Vector3(transform.position.x, transform.position.y + 8, transform.position.z), Quaternion.identity);
 		//Invoke ("RemoveAllEnemies", 8);
 		Invoke ("DestroyExcess", 11);
-		Debug.Log (health);
+		//Debug.Log (health);
 		//DestroyAllEnemies();
 	}
 
@@ -89,7 +95,8 @@ public class TowerHealth : MonoBehaviour {
 	public void TakeDamage(int damage){
 		health -= damage;
 		if(CheckForDeath()){
-			//GAME OVER!!!!
+			PlayerPrefs.SetInt("playerScore", manager.GetComponent<ScoreManager>().playerScore);
+			SceneManager.LoadScene("GameOver");
 		}
 		else{
 			return;

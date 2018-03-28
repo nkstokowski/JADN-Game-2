@@ -13,6 +13,10 @@ public class EnemyHealth : MonoBehaviour {
 		enemyManager = GameObject.Find ("Game_Manager").GetComponent<EnemyManager> ();
 	}
 
+	void Update(){
+		CheckForDeath ();
+	}
+
 	public float currentHealth = 100.0f;
 	const float MAX_HEALTH = 100.0f;
 
@@ -45,6 +49,8 @@ public class EnemyHealth : MonoBehaviour {
 		//Maybe play some animation / Sound / Effect?
 		//Could leave a billboard on the spot it died?
 
+		GameObject manager = GameObject.Find ("Game_Manager");
+		manager.GetComponent<ScoreManager>().playerScore += 10;
 		Destroy (gameObject);	//Destroy the gameObject.
 	}
 

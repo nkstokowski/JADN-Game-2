@@ -43,9 +43,7 @@ public class Player : MonoBehaviour {
 			if (Input.GetKeyDown ("3")) {
 				anim.Play ("Attack_03", -1, 0F);
 			}
-			if (Input.GetKeyDown ("4")) {
-				anim.Play ("Attack_04", -1, 0F);
-			}
+
 			
 			if (Input.GetKeyDown ("5")) {
 				anim.Play ("Attack_05", -1, 0F);
@@ -90,6 +88,10 @@ public class Player : MonoBehaviour {
 		} else {
 			wait = true;
 		}
+
+		//if (Input.GetKeyDown ("z")) {
+			//anim.Play ("Attack_04", -1, 0F);
+		//}
 
 		if (Input.GetMouseButton (1)) {
 			anim.Play (rangedAnimation, -1, rangedOffset);
