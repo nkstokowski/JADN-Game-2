@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114109217218772760}
   - component: {fileID: 114114693566234804}
   - component: {fileID: 114630573486627392}
+  - component: {fileID: 114150330139524928}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -72,6 +73,23 @@ MonoBehaviour:
   playerScore: 0
   playerMoney: 0
   playerMoneyText: {fileID: 0}
+  scoreText: {fileID: 0}
+--- !u!114 &114150330139524928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550713458904134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890393b6f06b38d41b7276995cca5dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerObjectPrefab: {fileID: 1087052299954080, guid: 59834d7d8410ed84eacde71b19073601,
+    type: 2}
+  sensativity: 0
+  spawnHeight: 28.998
+  placing: 0
 --- !u!114 &114287082473370550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blinkObject: {fileID: 0}
   berserkserObject: {fileID: 0}
+  aoeObject: {fileID: 0}
   disabledReduction: 0.5
 --- !u!114 &114742452705265802
 MonoBehaviour:
@@ -139,7 +158,7 @@ MonoBehaviour:
     type: 2}
   worldOrigin: {fileID: 0}
   spawnTime: 2.5
-  enemiesPerSpawn: 2
+  enemiesPerSpawn: 0
   currentEnemyCount: 0
   enemyTypes:
   - type: 0

@@ -145,7 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapManagerObject: {fileID: 0}
-  AttackOrigin: {fileID: 0}
+  active: 0
+  AttackOrigin: {fileID: 1371699834367406}
 --- !u!120 &120970652618488672
 LineRenderer:
   m_ObjectHideFlags: 1
