@@ -62,7 +62,7 @@ public class TowerPlacement : MonoBehaviour {
 	}
 
     // Begin the placing process
-    void startPlacing(GameObject tower)
+    public void startPlacing(GameObject tower)
     {
         // Only place one thing at a time
         if (!placing)

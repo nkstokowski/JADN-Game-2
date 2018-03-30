@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour {
 
@@ -11,13 +12,18 @@ public class ShopScript : MonoBehaviour {
     ArrowShooting arrowShooting;
     EnemyHealth enemyHealth;
     Blink blink;
+    ScoreManager scoreManager;
+    TowerPlacement towerPlacement;
+    public Slider healthSlider;
+    public GameObject slider;
+    float sliderWidth;
     public GameObject shopCanvas;
 	bool isShopOpen = false;
-    int money = 10000;
     int costDmg = 100;
     int costSpd = 100;
     int costHealth = 100;
     int blinkCost = 100;
+    int towerCost = 200;
     int speedTier = 1;
     int healthTier = 1;
     int dmgTier = 1;
@@ -27,20 +33,21 @@ public class ShopScript : MonoBehaviour {
 
 	void Start(){
 		pauseManager = GameObject.Find ("Game_Manager").GetComponent<Pause>();
+        scoreManager = GameObject.Find("Game_Manager").GetComponent<ScoreManager>();
+        towerPlacement = GameObject.Find("Game_Manager").GetComponent<TowerPlacement>();
         playerHealth = GameObject.Find("NewPlayer").GetComponent<PlayerHealth>();
         playerMovement = GameObject.Find("NewPlayer").GetComponent<PlayerMovement>();
         swordAttack = GameObject.Find("SM_Katana").GetComponent<SwordAttack>();
         arrowShooting = GameObject.Find("NewPlayer").GetComponent<ArrowShooting>();
         blink = GameObject.Find("NewPlayer").GetComponent<Blink>();
+        sliderWidth = slider.GetComponent<RectTransform>().rect.width;
 
-        //money = 100000;
 
-		shopCanvas.SetActive (false);
+        shopCanvas.SetActive (false);
 	}
 
 	void Update(){
 		CheckInputForShop ();
-        increaseMoney();
 	}
 
 	void CheckInputForShop(){
@@ -70,58 +77,60 @@ public class ShopScript : MonoBehaviour {
 
     public void IncreaseHealth()
     {
-        if (money >= costHealth)
+        if (scoreManager.playerMoney >= costHealth)
         {
             playerHealth.maxHealth += 25;
+            healthSlider.maxValue += 25;
+            slider.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, sliderWidth += 25);
             costHealth += 50;
             GameObject.Find("Health upgrade " + healthTier).SetActive(false);
             healthTier++;
-            money -= costHealth;
+            scoreManager.playerMoney -= costHealth;
         }
     }
 
     public void IncreaseDamage()
     {
-        if (money >= costDmg)
+        if (scoreManager.playerMoney >= costDmg)
         {
             arrowShooting.arrowDamage += 25;
             swordAttack.damage += 25;
             costDmg += 50;
             GameObject.Find("Attack Upgrade " + dmgTier).SetActive(false);
             dmgTier++;
-            money -= costDmg;
+            scoreManager.playerMoney -= costDmg;
         }
     }
 
     public void IncreaseSpeed()
     {
-        if (money >= costSpd)
+        if (scoreManager.playerMoney >= costSpd)
         {
             playerMovement.walkSpeed += .05f;
             costSpd += 50;
             GameObject.Find("Speed Upgrade " + speedTier).SetActive(false);
             speedTier++;
-            money -= costSpd;
+            scoreManager.playerMoney -= costSpd;
         }
     }
 
     public void IncreaseBlink()
     {
-        if (money >= blinkCost)
+        if (scoreManager.playerMoney >= blinkCost)
         {
             blink.blinkDistance += .05f;
             blinkCost += 50;
             GameObject.Find("Blink Upgrade " + blinkTier).SetActive(false);
             blinkTier++;
-            money -= blinkCost;
+            scoreManager.playerMoney -= blinkCost;
         }
     }
-
-    void increaseMoney()
+    public void purchaseTower()
     {
-        if (swordAttack.hit == true)
+        if (scoreManager.playerMoney >= towerCost)
         {
-            money += 25;
+            towerPlacement.startPlacing(towerPlacement.towerObjectPrefab);
+            scoreManager.playerMoney -= towerCost;
         }
     }
 }
