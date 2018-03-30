@@ -2495,6 +2495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   die: 0
+  effect: {fileID: 1624048461026776, guid: dd805c3799a88cd4bbd13afc7ebea351, type: 2}
   currentHealth: 100
 --- !u!137 &137745992014094698
 SkinnedMeshRenderer:

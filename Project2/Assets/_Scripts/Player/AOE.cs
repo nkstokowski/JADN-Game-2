@@ -60,12 +60,12 @@ public class AOE : MonoBehaviour {
 			if (InRange(o.transform.position)) 
 			{
 				enemy = o.GetComponent<EnemyHealth> ();
-				o.GetComponent<Animator> ().SetBool ("bool1", true);
+				o.GetComponent<Animator> ().SetBool ("attack", false);
 				o.GetComponent<Animator> ().Play ("Hit");
 				//Debug.Log (enemy);
 				enemy.currentHealth -= 50;
 				//Destroy (o);
-				o.GetComponent<Animator> ().SetBool ("bool1", false);
+				o.GetComponent<Animator> ().SetBool ("attack", true);
 				enemy = o.GetComponent<EnemyHealth> ();	
 				enemy.TakeDamage(damage);
 

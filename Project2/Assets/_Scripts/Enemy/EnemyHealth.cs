@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour {
 	//Manager Access
 	EnemyManager enemyManager;
     public bool die = false;
-
+	public GameObject effect;
 
 	void Start(){
 		enemyManager = GameObject.Find ("Game_Manager").GetComponent<EnemyManager> ();
@@ -22,6 +22,8 @@ public class EnemyHealth : MonoBehaviour {
 
 	//Take some value of damage. (Can also be used to heal as param can be +/-).
 	public void TakeDamage(float damage){
+		GetComponent<Animator> ().SetBool ("attack", false);
+		GetComponent<Animator> ().Play ("Hit");
 		currentHealth -= damage;
 		CheckForDeath ();
 	}
@@ -50,6 +52,7 @@ public class EnemyHealth : MonoBehaviour {
 		//Could leave a billboard on the spot it died?
 		//gameObject.GetComponent<Animator> ().SetBool("bool3", true);
 		gameObject.GetComponent<Animator> ().Play ("Defend");
+		Instantiate (effect, new Vector3(transform.position.x - 1, transform.position.y + 1, transform.position.z), Quaternion.identity);
 		Invoke ("Death", .8f);
 	}
 		
