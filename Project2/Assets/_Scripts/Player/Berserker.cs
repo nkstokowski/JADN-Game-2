@@ -20,6 +20,9 @@ public class Berserker : MonoBehaviour {
 	public GameObject countDownObject;
 	Text countDownText;
 
+	public GameObject effect;
+	public GameObject effectSpawn;
+
 	void Start(){
 		range = player.GetComponent<ArrowShooting>();
 		melee = sword.GetComponent<SwordAttack>();
@@ -30,13 +33,20 @@ public class Berserker : MonoBehaviour {
 	}
 
 	void Update(){
-		if(Input.GetKeyDown(key) && canUseAbility){
-			StartCoroutine(TriggerAbility());
-		}
+		if (Input.GetKeyDown (key) && canUseAbility) {
+			//GameObject game = Instantiate (effect, effectSpawn.transform.position, Quaternion.identity);
+			//(Instantiate (effect) as GameObject).transform.parent = effectSpawn.transform;
+				
+				
+
+			StartCoroutine (TriggerAbility ());
+		} 
 	}
 
 	public IEnumerator TriggerAbility(){
 		canUseAbility = false;
+		effect.transform.position = effectSpawn.transform.position;
+		effect.transform.parent = effectSpawn.transform;
 		StartCoroutine(CountDownText());
 		abilityManager.DisableAbilityImage(abilityManager.berserkserObject);
 		int storedRangeDamage = range.arrowDamage;
@@ -71,7 +81,12 @@ public class Berserker : MonoBehaviour {
 		tempNum--;
 		int display = (int)tempNum;
 		countDownText.text = display.ToString();
+			if (tempNum <= 3) {
+				effect.transform.parent = null;
+				effect.transform.position = new Vector3 (0, 0, 0);
+			}
 		}
+
 	}
 
 
