@@ -23,6 +23,7 @@ public class ArrowShooting : MonoBehaviour {
     public float arrowSpeed = 50.0f;
     public int pierceCount = 1;
     public float minShotDistance = 5.0f;
+    public AudioClip shotSound;
     private float nextFire;
     private float shotDistance = 0.0f;
     private float shotSpeed = 50.0f;
@@ -151,6 +152,7 @@ public class ArrowShooting : MonoBehaviour {
     // Things like audio effects for the shots can be played here
     private IEnumerator ShotEffect()
     {
+        GetComponent<AudioSource>().PlayOneShot(shotSound);
         yield return shotDuration;
     }
 

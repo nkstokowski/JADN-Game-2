@@ -4446,11 +4446,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 2bff1fd21a21327479fc190fe759ea13, type: 3}
   m_PrefabInternal: {fileID: 206222493}
---- !u!1 &207275916 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1172115552815188, guid: 8fba6139b218d419a93af240126c7dbc,
-    type: 2}
-  m_PrefabInternal: {fileID: 1854944746}
 --- !u!1 &207505814 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 559dafad4876b6949a5fe4b6cfea3fa2, type: 3}
@@ -40161,41 +40156,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114851057414518604, guid: 8fba6139b218d419a93af240126c7dbc,
-        type: 2}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 1658969266}
-    - target: {fileID: 114851057414518604, guid: 8fba6139b218d419a93af240126c7dbc,
-        type: 2}
-      propertyPath: countDownObject
-      value: 
-      objectReference: {fileID: 824752678}
-    - target: {fileID: 114572337620255094, guid: 8fba6139b218d419a93af240126c7dbc,
-        type: 2}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 1658969266}
-    - target: {fileID: 114572337620255094, guid: 8fba6139b218d419a93af240126c7dbc,
-        type: 2}
-      propertyPath: countDownObject
-      value: 
-      objectReference: {fileID: 657398237}
-    - target: {fileID: 114466954573322646, guid: 8fba6139b218d419a93af240126c7dbc,
-        type: 2}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 1658969266}
-    - target: {fileID: 114466954573322646, guid: 8fba6139b218d419a93af240126c7dbc,
-        type: 2}
-      propertyPath: healthSlider
-      value: 
-      objectReference: {fileID: 305677058}
-    - target: {fileID: 114270625526734588, guid: 8fba6139b218d419a93af240126c7dbc,
-        type: 2}
-      propertyPath: chargeMeter
-      value: 
-      objectReference: {fileID: 1470198693}
     - target: {fileID: 114064852825970924, guid: 8fba6139b218d419a93af240126c7dbc,
         type: 2}
       propertyPath: manager
@@ -40206,20 +40166,71 @@ Prefab:
       propertyPath: countDownObject
       value: 
       objectReference: {fileID: 595691456}
-    - target: {fileID: 1720433112104594, guid: 8fba6139b218d419a93af240126c7dbc, type: 2}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 114064852825970924, guid: 8fba6139b218d419a93af240126c7dbc,
         type: 2}
       propertyPath: effect
       value: 
       objectReference: {fileID: 1691978802}
-    - target: {fileID: 114064852825970924, guid: 8fba6139b218d419a93af240126c7dbc,
+    - target: {fileID: 114270625526734588, guid: 8fba6139b218d419a93af240126c7dbc,
         type: 2}
-      propertyPath: effectSpawn
+      propertyPath: chargeMeter
       value: 
-      objectReference: {fileID: 207275916}
+      objectReference: {fileID: 1470198693}
+    - target: {fileID: 114466954573322646, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1658969266}
+    - target: {fileID: 114466954573322646, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 305677058}
+    - target: {fileID: 114572337620255094, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1658969266}
+    - target: {fileID: 114572337620255094, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: countDownObject
+      value: 
+      objectReference: {fileID: 657398237}
+    - target: {fileID: 114851057414518604, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1658969266}
+    - target: {fileID: 114851057414518604, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: countDownObject
+      value: 
+      objectReference: {fileID: 824752678}
+    - target: {fileID: 114270625526734588, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: shotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: baa1970b352b71942be5c5b4c3bce2cf, type: 3}
+    - target: {fileID: 82991850882603244, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82991850882603244, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: DopplerLevel
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 82991850882603244, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114572337620255094, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: blinkDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fba6139b218d419a93af240126c7dbc, type: 2}
   m_IsPrefabParent: 0
