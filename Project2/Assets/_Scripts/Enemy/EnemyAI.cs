@@ -198,7 +198,7 @@ public class EnemyAI : MonoBehaviour {
 	}
 	public bool InRange2()
 	{
-		if (Vector3.SqrMagnitude (transform.position - player.transform.position) <= 2) 
+		if (Vector3.SqrMagnitude (transform.position - player.transform.position) <= 5) 
 		{
 			//Debug.Log (Vector3.SqrMagnitude (enemy - transform.position));
 			//Debug.Log ("IN RANGE");
