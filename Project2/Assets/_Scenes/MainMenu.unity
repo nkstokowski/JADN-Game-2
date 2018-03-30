@@ -30304,7 +30304,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 238562cb90ae147f2a5b1dc5c8a247e1, type: 3}
+    m_Font: {fileID: 12800000, guid: fcc317bc1157e46b98ce2fbfa5ac7218, type: 3}
     m_FontSize: 58
     m_FontStyle: 2
     m_BestFit: 0
@@ -30316,7 +30316,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sean's Samurai Game
+  m_Text: Ronin Tower
 --- !u!222 &1424709938
 CanvasRenderer:
   m_ObjectHideFlags: 0
