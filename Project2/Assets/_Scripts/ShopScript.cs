@@ -16,6 +16,8 @@ public class ShopScript : MonoBehaviour {
     TowerPlacement towerPlacement;
     public Slider healthSlider;
     public GameObject slider;
+    public GameObject spikeTrap;
+    public GameObject lightning;
     float sliderWidth;
     public GameObject shopCanvas;
 	bool isShopOpen = false;
@@ -125,11 +127,30 @@ public class ShopScript : MonoBehaviour {
             scoreManager.playerMoney -= blinkCost;
         }
     }
+
     public void purchaseTower()
     {
         if (scoreManager.playerMoney >= towerCost)
         {
             towerPlacement.startPlacing(towerPlacement.towerObjectPrefab);
+            scoreManager.playerMoney -= towerCost;
+        }
+    }
+
+    public void purchaseSpike()
+    {
+        if (scoreManager.playerMoney >= towerCost)
+        {
+            towerPlacement.startPlacing(spikeTrap);
+            scoreManager.playerMoney -= towerCost;
+        }
+    }
+
+    public void purchaseLightning()
+    {
+        if (scoreManager.playerMoney >= towerCost)
+        {
+            towerPlacement.startPlacing(lightning);
             scoreManager.playerMoney -= towerCost;
         }
     }
