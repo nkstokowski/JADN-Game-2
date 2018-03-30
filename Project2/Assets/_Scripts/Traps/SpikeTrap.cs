@@ -2,31 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeTrap : MonoBehaviour {
-
-	public GameObject trapManagerObject;
-	TrapManager trapManager;
-	float damage;
-	float radius;
-	float degradeAmount;
-	float health;
-    TrapType type;
+public class SpikeTrap : BaseTrap
+{
 
 	void Start(){
 
-		//Load our trap stats
-
-		trapManager = trapManagerObject.GetComponent<TrapManager> ();
-		for(int i=0;i<trapManager.traps.Length;i++){
-			if(trapManager.traps[i].type == type){
-				//Load stats
-				damage = trapManager.traps[i].damage;
-				radius = trapManager.traps[i].radius;
-				degradeAmount = trapManager.traps [i].degradeAmount;
-				health = trapManager.traps [i].health;
-			}
-		}
-	}
+        //Load our trap stats
+        InitTrap();
+    }
 		
 	void OnTriggerEnter(Collider other){
 
@@ -50,14 +33,5 @@ public class SpikeTrap : MonoBehaviour {
 
 		//Apply some effect to the enemy
 
-	}
-
-	bool CheckBroken(){
-		if(health <= 0.0f){
-			return true;
-		}
-		else{
-			return false;
-		}
 	}
 }
