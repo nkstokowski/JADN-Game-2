@@ -78,4 +78,9 @@ public class SniperTower : BaseTrap
         yield return shotDuration;
         bulletLine.enabled = false;
     }
+
+    public new void setActive(bool state)
+    {
+        active = state;
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TowerPlacement : MonoBehaviour {
 
@@ -8,8 +9,11 @@ public class TowerPlacement : MonoBehaviour {
     // Currently only used when debugging
     public GameObject towerObjectPrefab;
 
-    public float sensativity;
+    [HeaderAttribute("Placement Variables")]
     public float spawnHeight = 28.998f;
+    public float samplePositionRange = 0.1f;
+    public Color goodLocationColor;
+    public Color badLocationColor;
 
     // Placing state. Use this to disable any action that shouldn't happen while placing
     public bool placing = false;
@@ -17,7 +21,11 @@ public class TowerPlacement : MonoBehaviour {
     // The internal reference to the object being placed
     private GameObject towerPlacingInstance;
     private BaseTrap trapEffect;
-    
+    private Renderer towerRenderer;
+    public Material[] standardMats;
+    private Material[] placementMats;
+    private bool placementState = true;
+
 
     // Use this for initialization
     void Start () {
@@ -26,19 +34,25 @@ public class TowerPlacement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         if (placing)
         {
             Vector3 newPosition = UpdateInstancePosition(towerPlacingInstance);
+            placementState = canBePlaced(newPosition);
+            setPlacementMats();
 
             if (Input.GetButtonDown("Fire2"))
             {
                 placing = false;
                 Destroy(towerPlacingInstance);
             }
-            else if (Input.GetButtonDown("Fire1") && canBePlaced(newPosition))
+            else if (Input.GetButtonDown("Fire1") && placementState)
             {
                 placing = false;
-                trapEffect.active = true;
+                trapEffect.setActive(true);
+
+                // Put back the old materials
+                towerRenderer.materials = standardMats;
             }
         }
         else if (Input.GetKeyUp(KeyCode.T))
@@ -59,10 +73,13 @@ public class TowerPlacement : MonoBehaviour {
             Vector3 newPosition = UpdateInstancePosition(towerPlacingInstance);
             // Set it to inactive
             trapEffect = towerPlacingInstance.GetComponent<BaseTrap>();
-            if (trapEffect)
-            {
-                trapEffect.active = false;
-            }
+            trapEffect.setActive(true);
+
+            // Get the renderer, save its current materials, then create a cloned array of materials for editing
+            towerRenderer = towerPlacingInstance.GetComponent<Renderer>();
+            standardMats = towerRenderer.materials;
+            cloneMats();
+            setPlacementMats();
 
             // Set placing status
             placing = true;
@@ -73,7 +90,8 @@ public class TowerPlacement : MonoBehaviour {
     // Returns true if tower is in a placable location
     bool canBePlaced(Vector3 position)
     {
-        return true;
+        NavMeshHit hit;
+        return (NavMesh.SamplePosition(position, out hit, samplePositionRange, NavMesh.AllAreas));
     }
 
     Vector3 UpdateInstancePosition(GameObject obj){
@@ -83,5 +101,28 @@ public class TowerPlacement : MonoBehaviour {
         newMousePos.y = spawnHeight;
         obj.transform.position = newMousePos;
         return newMousePos;
+    }
+
+
+    // Update the placement materials array to the correct color
+    void setPlacementMats()
+    {
+        Color colorToUse = (placementState) ? goodLocationColor : badLocationColor;
+        for(int i=0; i < placementMats.Length; i++)
+        {
+            placementMats[i].color = colorToUse;
+        }
+        towerRenderer.materials = placementMats;
+    }
+
+    // Create the placement materials array by cloning the standard materials array
+    void cloneMats()
+    {
+        placementMats = new Material[standardMats.Length];
+
+        for (int i = 0; i < standardMats.Length; i++)
+        {
+            placementMats[i] = new Material(standardMats[i]);
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseTrap : MonoBehaviour {
 
     public GameObject trapManagerObject;
-    public bool active;
+    protected bool active;
     protected TrapManager trapManager;
     protected float damage;
     protected float radius;
@@ -44,5 +44,12 @@ public class BaseTrap : MonoBehaviour {
                 hasRepeatedEffect = trapManager.traps[i].hasRepeatedEffect;
             }
         }
+
+        active = false;
+    }
+
+    public void setActive(bool state)
+    {
+        active = state;
     }
 }

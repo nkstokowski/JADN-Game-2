@@ -4379,6 +4379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   rbody: {fileID: 0}
+  gameManager: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
+    type: 2}
   meleeAnimation: Attack_01
   meleeOffset: 0
   rangedAnimation: Attack_07

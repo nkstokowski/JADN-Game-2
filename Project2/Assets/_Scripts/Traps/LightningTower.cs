@@ -24,7 +24,7 @@ public class LightningTower : BaseTrap
         gameObject.GetComponent<SphereCollider>().radius = radius;
         for(int i=0; i < arcCount; i++)
         {
-            GameObject temp = Instantiate(lightningArcObject, AttackOrigin.transform.position, transform.rotation);
+            GameObject temp = Instantiate(lightningArcObject, AttackOrigin.transform.position, transform.rotation, transform);
             arcs[i] = temp.GetComponent<LightningArc>();
             arcs[i].initArc(radius, damage);
         }
@@ -32,8 +32,9 @@ public class LightningTower : BaseTrap
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" && active)
+        if (other.gameObject.tag == "Enemy" && base.active)
         {
+            Debug.Log(name + ": Enemy entered range");
             ApplyTrapEffect(other.gameObject);
         }
     }

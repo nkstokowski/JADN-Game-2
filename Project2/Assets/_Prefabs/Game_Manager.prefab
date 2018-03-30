@@ -87,9 +87,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObjectPrefab: {fileID: 1087052299954080, guid: 59834d7d8410ed84eacde71b19073601,
     type: 2}
-  sensativity: 0
   spawnHeight: 28.998
+  samplePositionRange: 0.1
+  goodLocationColor: {r: 0.19999993, g: 1, b: 0, a: 0.27058825}
+  badLocationColor: {r: 1, g: 0, b: 0, a: 0.27058825}
   placing: 0
+  standardMats: []
 --- !u!114 &114287082473370550
 MonoBehaviour:
   m_ObjectHideFlags: 1

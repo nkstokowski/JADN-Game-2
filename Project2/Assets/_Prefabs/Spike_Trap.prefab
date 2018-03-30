@@ -105,4 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3394e6860084411cb8bbb1248323752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapManagerObject: {fileID: 0}
+  trapManagerObject: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
+    type: 2}
+  active: 0
