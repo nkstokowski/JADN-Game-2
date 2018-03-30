@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114114693566234804}
   - component: {fileID: 114630573486627392}
   - component: {fileID: 114150330139524928}
+  - component: {fileID: 114801830840891994}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -155,15 +156,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755e17326f8d543fcb856b555dee0339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 25
+  spawnRadius: 35
   maxEnemyCount: 100
   enemyTransform: {fileID: 1388007703786474, guid: 8dcd29c2196844239a8efb3a5a92f0b4,
     type: 2}
   worldOrigin: {fileID: 0}
   spawnTime: 2.5
-  enemiesPerSpawn: 0
+  enemiesPerSpawn: 2
   currentEnemyCount: 0
   enemyTypes:
   - type: 0
-    damage: 15
+    damage: 1
     attackRadius: 5
+--- !u!114 &114801830840891994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1550713458904134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e26f1e3096e8e46808134277e98823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  slider: {fileID: 0}
+  spikeTrap: {fileID: 1191784217235834, guid: 58ac33ccb9dd04ece995b83f590a4bbd, type: 2}
+  lightning: {fileID: 1771504159370818, guid: 45205dbb4b6f9b54abed7189edd90676, type: 2}
+  shopCanvas: {fileID: 0}

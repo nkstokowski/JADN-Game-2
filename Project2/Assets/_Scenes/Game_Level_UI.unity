@@ -36128,16 +36128,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114114693566234804, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: playerMoneyText
-      value: 
-      objectReference: {fileID: 834693701}
-    - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: worldOrigin
-      value: 
-      objectReference: {fileID: 1142459051}
     - target: {fileID: 114630573486627392, guid: 5b9a34a4298a3457593aaa239788043f,
         type: 2}
       propertyPath: blinkObject
@@ -36148,6 +36138,41 @@ Prefab:
       propertyPath: berserkserObject
       value: 
       objectReference: {fileID: 1554503316}
+    - target: {fileID: 114630573486627392, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: aoeObject
+      value: 
+      objectReference: {fileID: 1402622458}
+    - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: worldOrigin
+      value: 
+      objectReference: {fileID: 1142459051}
+    - target: {fileID: 114114693566234804, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: playerMoneyText
+      value: 
+      objectReference: {fileID: 834693701}
+    - target: {fileID: 114114693566234804, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 299621133}
+    - target: {fileID: 114801830840891994, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 305677060}
+    - target: {fileID: 114801830840891994, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 305677058}
+    - target: {fileID: 114801830840891994, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: shopCanvas
+      value: 
+      objectReference: {fileID: 249685610}
     - target: {fileID: 114109217218772760, guid: 5b9a34a4298a3457593aaa239788043f,
         type: 2}
       propertyPath: resumeButton
@@ -36158,25 +36183,10 @@ Prefab:
       propertyPath: menuButton
       value: 
       objectReference: {fileID: 347402675}
-    - target: {fileID: 114114693566234804, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 299621133}
-    - target: {fileID: 114630573486627392, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: aoeObject
-      value: 
-      objectReference: {fileID: 1402622458}
     - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
         type: 2}
-      propertyPath: enemiesPerSpawn
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114742452705265802, guid: 5b9a34a4298a3457593aaa239788043f,
-        type: 2}
-      propertyPath: spawnRadius
-      value: 35
+      propertyPath: spawnTime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b9a34a4298a3457593aaa239788043f, type: 2}
@@ -36186,22 +36196,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
     type: 2}
   m_PrefabInternal: {fileID: 1658969265}
---- !u!114 &1658969267
+--- !u!114 &1658969267 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1658969266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 114801830840891994, guid: 5b9a34a4298a3457593aaa239788043f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1658969265}
   m_Script: {fileID: 11500000, guid: a4e26f1e3096e8e46808134277e98823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 305677060}
-  slider: {fileID: 305677058}
-  spikeTrap: {fileID: 1191784217235834, guid: 58ac33ccb9dd04ece995b83f590a4bbd, type: 2}
-  lightning: {fileID: 1771504159370818, guid: 45205dbb4b6f9b54abed7189edd90676, type: 2}
-  shopCanvas: {fileID: 249685610}
 --- !u!114 &1658969268 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114109217218772760, guid: 5b9a34a4298a3457593aaa239788043f,

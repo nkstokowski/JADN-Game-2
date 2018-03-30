@@ -29,7 +29,10 @@ public class EnemyManager : MonoBehaviour {
 		StartCoroutine (SpawnWave ());	//MOVE THIS TO WHEN WE ACTUALLY START THE GAME?
 	}
 	void Update(){
-		//currentEnemyCount = enemies.Count;
+		spawnTime -= Time.deltaTime / 1000;
+		if(spawnTime <= 1.0f){
+			spawnTime = 1.0f;
+		}
 	}
 
 	IEnumerator SpawnWave ()

@@ -60,7 +60,7 @@ public class EnemyHealth : MonoBehaviour {
 
 		GameObject manager = GameObject.Find ("Game_Manager");
 		manager.GetComponent<ScoreManager>().playerScore += 10;
-        manager.GetComponent<ScoreManager>().playerMoney += 10;
+        manager.GetComponent<ScoreManager>().playerMoney += 15;
 		Destroy (gameObject);	//Destroy the gameObject.
 
 	}
