@@ -12,6 +12,7 @@ public class TowerHealth : MonoBehaviour {
 
 	public GameObject manager;
 	public GameObject sliderObject;
+	public AudioClip pulseSound;
 	Slider slider;
 
 	public List<GameObject> enemyList = new List<GameObject>();
@@ -42,6 +43,7 @@ public class TowerHealth : MonoBehaviour {
 	//Instantiates the Effect as well as delays the objects destruction
 	public void Pulse()
 	{
+		GetComponent<AudioSource>().PlayOneShot(pulseSound);
 		//CheckEnemy ();
 		//ADD A SECOND INVOKE
 		Instantiate (effect, new Vector3(transform.position.x, transform.position.y + 8, transform.position.z), Quaternion.identity);

@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpikeTrap : BaseTrap
 {
 
+	public AudioClip effectCLip;
+
 	void Start(){
 
         //Load our trap stats
@@ -12,16 +14,17 @@ public class SpikeTrap : BaseTrap
     }
 		
 	void OnTriggerEnter(Collider other){
-
-		float distance = Vector3.Distance (other.gameObject.transform.position, transform.position);
-		if(distance <= radius && other.gameObject.tag == "Enemy"){
-			ApplyTrapEffect (other.gameObject);
+		Debug.Log("Spike Trap");
+		if(other.gameObject.tag == "Enemy"){
+			ApplyTrapEffect(other.gameObject);
+			Debug.Log("Spike Trap");
 		}
 	}
 
 	//What we do if this is a trap
 	void ApplyTrapEffect(GameObject enemy){
 
+		GetComponent<AudioSource>().PlayOneShot(effectCLip);
 		//Subtract damage from the enemy
 		enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
 

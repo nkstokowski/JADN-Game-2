@@ -10,6 +10,7 @@ public class SniperTower : BaseTrap
 
     [HeaderAttribute("Shooting Variables")]
     public WaitForSeconds shotDuration = new WaitForSeconds(.2f);
+    public AudioClip shotSound;
     private float nextTimeToFire = 0f;
     private bool readyToFire = true;
 
@@ -62,7 +63,7 @@ public class SniperTower : BaseTrap
             EnemyHealth health = hit.collider.GetComponent<EnemyHealth>();
             if (health)
             {
-                Debug.Log("Hit!");
+                GetComponent<AudioSource>().PlayOneShot(shotSound);
                 readyToFire = false;
                 nextTimeToFire = Time.time + fireRate;
                 health.TakeDamage(damage);

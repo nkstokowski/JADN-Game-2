@@ -36188,6 +36188,11 @@ Prefab:
       propertyPath: spawnTime
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114114693566234804, guid: 5b9a34a4298a3457593aaa239788043f,
+        type: 2}
+      propertyPath: playerMoney
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b9a34a4298a3457593aaa239788043f, type: 2}
   m_IsPrefabParent: 0
