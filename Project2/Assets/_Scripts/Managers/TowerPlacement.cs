@@ -28,17 +28,14 @@ public class TowerPlacement : MonoBehaviour {
 	void Update () {
         if (placing)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.y = spawnHeight;
-
-            towerPlacingInstance.transform.position = mousePos;
+            Vector3 newPosition = UpdateInstancePosition(towerPlacingInstance);
 
             if (Input.GetButtonDown("Fire2"))
             {
                 placing = false;
                 Destroy(towerPlacingInstance);
             }
-            else if (Input.GetButtonDown("Fire1") && canBePlaced(mousePos))
+            else if (Input.GetButtonDown("Fire1") && canBePlaced(newPosition))
             {
                 placing = false;
                 trapEffect.active = true;
@@ -57,10 +54,9 @@ public class TowerPlacement : MonoBehaviour {
         if (!placing)
         {
             // Instantiate the new tower
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.y = spawnHeight;
-            towerPlacingInstance = Instantiate(tower, mousePos, Quaternion.identity);
+            towerPlacingInstance = Instantiate(tower, Vector3.zero, Quaternion.identity);
 
+            Vector3 newPosition = UpdateInstancePosition(towerPlacingInstance);
             // Set it to inactive
             trapEffect = towerPlacingInstance.GetComponent<BaseTrap>();
             if (trapEffect)
@@ -80,12 +76,12 @@ public class TowerPlacement : MonoBehaviour {
         return true;
     }
 
-    void moveViaMouseMovement()
-    {
-        Vector3 translation = Vector3.zero;
-        translation.x = Input.GetAxis("Mouse X") * Time.deltaTime * sensativity;
-        translation.z = Input.GetAxis("Mouse Y") * Time.deltaTime * sensativity;
-
-        towerPlacingInstance.transform.Translate(translation);
+    Vector3 UpdateInstancePosition(GameObject obj){
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.transform.position.y - obj.transform.position.y;
+        Vector3 newMousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        newMousePos.y = spawnHeight;
+        obj.transform.position = newMousePos;
+        return newMousePos;
     }
 }
