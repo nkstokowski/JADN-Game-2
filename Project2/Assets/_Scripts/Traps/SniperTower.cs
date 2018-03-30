@@ -2,44 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SniperTower : MonoBehaviour
+public class SniperTower : BaseTrap
 {
     [HeaderAttribute("Dependencies")]
-    public GameObject trapManagerObject;
     public GameObject AttackOrigin;
     private LineRenderer bulletLine;
-    TrapManager trapManager;
-
-    float damage;
-    float radius;
-    float degradeAmount;
-    float health;
-    TrapType type = TrapType.Sniper;
 
     [HeaderAttribute("Shooting Variables")]
     public WaitForSeconds shotDuration = new WaitForSeconds(.2f);
     private float nextTimeToFire = 0f;
-    private float fireRate;
     private bool readyToFire = true;
 
     void Start()
     {
 
-        //Load our trap stats
+        type = TrapType.Sniper;
 
-        trapManager = trapManagerObject.GetComponent<TrapManager>();
-        for (int i = 0; i < trapManager.traps.Length; i++)
-        {
-            if (trapManager.traps[i].type == type)
-            {
-                //Load stats
-                damage = trapManager.traps[i].damage;
-                radius = trapManager.traps[i].radius;
-                degradeAmount = trapManager.traps[i].degradeAmount;
-                health = trapManager.traps[i].health;
-                fireRate = trapManager.traps[i].fireRate;
-            }
-        }
+        //Load our trap stats
+        InitTrap();
 
         gameObject.GetComponent<SphereCollider>().radius = radius;
         bulletLine = GetComponent<LineRenderer>();
@@ -56,7 +36,7 @@ public class SniperTower : MonoBehaviour
 
     void Update()
     {
-        if (Time.time >= nextTimeToFire)
+        if (Time.time >= nextTimeToFire && active)
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
             readyToFire = true;
@@ -99,15 +79,8 @@ public class SniperTower : MonoBehaviour
         bulletLine.enabled = false;
     }
 
-    bool CheckBroken()
+    public new void setActive(bool state)
     {
-        if (health <= 0.0f)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        active = state;
     }
 }

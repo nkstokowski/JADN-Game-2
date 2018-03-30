@@ -6,6 +6,8 @@ public class Player : MonoBehaviour {
 	
 	public Animator anim;
 	public Rigidbody rbody;
+    public GameObject gameManager;
+    private TowerPlacement placement;
 
     [HeaderAttribute("Melee Attack")]
     public string meleeAnimation = "Attack_01";
@@ -27,13 +29,17 @@ public class Player : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		rbody = GetComponent<Rigidbody>();
 		run = false;
+        placement = gameManager.GetComponent<TowerPlacement>();
 	}
 
 
 	// Update is called once per frame
 	void Update ()
 	{
-		/*
+
+        bool isPlacing = placement.placing;
+
+        /*
 			if (Input.GetKeyDown ("1")) {
 				anim.Play ("Attack_01", -1, 0F);
 			}
@@ -78,7 +84,7 @@ public class Player : MonoBehaviour {
 			}
 			*/
 
-		if (Input.GetMouseButtonDown (0) && wait == true) {
+        if (Input.GetMouseButtonDown (0) && wait == true && !isPlacing) {
 			anim.Play (meleeAnimation, -1, meleeOffset);
 
 			//anim.CrossFade ("Idle_Weapon", .3f);
@@ -93,7 +99,7 @@ public class Player : MonoBehaviour {
 			//anim.Play ("Attack_04", -1, 0F);
 		//}
 
-		if (Input.GetMouseButton (1)) {
+		if (Input.GetMouseButton (1) && !isPlacing) {
 			anim.Play (rangedAnimation, -1, rangedOffset);
 		}
 

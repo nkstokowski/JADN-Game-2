@@ -140,10 +140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapManagerObject: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
     type: 2}
+  active: 0
   lightningArcObject: {fileID: 1416706544250414, guid: 8e63dd1e647b688469873ac3b4b2f49c,
     type: 2}
   AttackOrigin: {fileID: 1398252094452374}
-  arcCount: 1
+  arcCount: 3
 --- !u!135 &135837818559181104
 SphereCollider:
   m_ObjectHideFlags: 1

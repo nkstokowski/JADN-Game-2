@@ -21,15 +21,19 @@ public class LightningArc : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        // If target is ever lost, stop attacking
-        if(!target || Vector3.Distance(target.transform.position, transform.position) > (radius + attackThreshold))
+        if (!target)
         {
             attacking = false;
             line.enabled = false;
-            if (target)
-            {
-                target.GetComponent<EnemyAI>().setBeingAttacked(false);
-            }
+            return;
+        }
+
+        // If target is ever lost, stop attacking
+        if(Vector3.Distance(target.transform.position, transform.position) > (radius + attackThreshold))
+        {
+            attacking = false;
+            line.enabled = false;
+            target.GetComponent<EnemyAI>().setBeingAttacked(false);
             target = null;
         }
 

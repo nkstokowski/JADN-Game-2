@@ -144,8 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c985f9357245e44a13d4b336555b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapManagerObject: {fileID: 0}
-  AttackOrigin: {fileID: 0}
+  trapManagerObject: {fileID: 1550713458904134, guid: 5b9a34a4298a3457593aaa239788043f,
+    type: 2}
+  active: 0
+  AttackOrigin: {fileID: 1371699834367406}
 --- !u!120 &120970652618488672
 LineRenderer:
   m_ObjectHideFlags: 1
