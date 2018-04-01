@@ -28397,6 +28397,11 @@ Prefab:
       propertyPath: sliderObject
       value: 
       objectReference: {fileID: 1103646000}
+    - target: {fileID: 82522182509975074, guid: 66033d04e9d1648dfa5437cfea80e0cb,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66033d04e9d1648dfa5437cfea80e0cb, type: 2}
   m_IsPrefabParent: 0
@@ -36303,7 +36308,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3e99196527ddff64fb4d6ecdba8b56f5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -40376,6 +40381,11 @@ Prefab:
       propertyPath: effect
       value: 
       objectReference: {fileID: 1691978802}
+    - target: {fileID: 82991850882603244, guid: 8fba6139b218d419a93af240126c7dbc,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8fba6139b218d419a93af240126c7dbc, type: 2}
   m_IsPrefabParent: 0

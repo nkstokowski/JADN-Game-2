@@ -19,7 +19,7 @@ public class TowerHealth : MonoBehaviour {
 
 	void Start()
 	{
-		InvokeRepeating ("Pulse", 0, 15);
+		InvokeRepeating ("Pulse", 8, 15);
 		slider = sliderObject.GetComponent<Slider>();
 	}
 	void Update()
