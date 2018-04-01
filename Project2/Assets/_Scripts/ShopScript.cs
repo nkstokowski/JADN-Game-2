@@ -31,9 +31,12 @@ public class ShopScript : MonoBehaviour {
     int dmgTier = 1;
     int blinkTier = 1;
 
-
+	AudioSource[] sounds;
+	AudioSource purchase;
 
 	void Start(){
+		sounds = gameObject.GetComponents<AudioSource> ();
+		purchase = sounds [0];
 		pauseManager = GameObject.Find ("Game_Manager").GetComponent<Pause>();
         scoreManager = GameObject.Find("Game_Manager").GetComponent<ScoreManager>();
         towerPlacement = GameObject.Find("Game_Manager").GetComponent<TowerPlacement>();
@@ -81,6 +84,7 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= costHealth)
         {
+			purchase.Play ();
             playerHealth.maxHealth += 25;
             healthSlider.maxValue += 25;
             slider.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, sliderWidth += 25);
@@ -95,6 +99,7 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= costDmg)
         {
+			purchase.Play ();
             arrowShooting.arrowDamage += 25;
             swordAttack.damage += 25;
             costDmg += 50;
@@ -108,6 +113,7 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= costSpd)
         {
+			purchase.Play ();
             playerMovement.walkSpeed += .05f;
             costSpd += 50;
             GameObject.Find("Speed Upgrade " + speedTier).SetActive(false);
@@ -120,6 +126,7 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= blinkCost)
         {
+			purchase.Play ();
             blink.blinkDistance += .05f;
             blinkCost += 50;
             GameObject.Find("Blink Upgrade " + blinkTier).SetActive(false);
@@ -132,6 +139,7 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= towerCost)
         {
+			purchase.Play ();
             towerPlacement.startPlacing(towerPlacement.towerObjectPrefab);
             scoreManager.playerMoney -= towerCost;
         }
@@ -141,6 +149,7 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= towerCost)
         {
+			purchase.Play ();
             towerPlacement.startPlacing(spikeTrap);
             scoreManager.playerMoney -= towerCost;
         }
@@ -150,6 +159,7 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= towerCost)
         {
+			purchase.Play ();
             towerPlacement.startPlacing(lightning);
             scoreManager.playerMoney -= towerCost;
         }

@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 54861644302180626}
   - component: {fileID: 114196916753389384}
   - component: {fileID: 65710557028947300}
+  - component: {fileID: 82445761580385854}
   m_Layer: 0
   m_Name: NewNinja
   m_TagString: Enemy
@@ -2431,6 +2432,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0086362, y: 2.9141455, z: 1.910861}
   m_Center: {x: 0.17402196, y: 1.5370724, z: -0.03706796}
+--- !u!82 &82445761580385854
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1388007703786474}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: afc00c5579c9a384283bff222629e998, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95151567553144222
 Animator:
   serializedVersion: 3
@@ -2494,7 +2575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98bbb2d940754f0cb602fd52ae5e34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  die: 0
   effect: {fileID: 1624048461026776, guid: dd805c3799a88cd4bbd13afc7ebea351, type: 2}
   currentHealth: 100
 --- !u!137 &137745992014094698

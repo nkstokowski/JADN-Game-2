@@ -6,10 +6,10 @@ public class SwordAttack : MonoBehaviour {
 
     public int damage = 34;
     public bool hit;
-
+	AudioSource soundHit;
 	// Use this for initialization
 	void Start () {
-		
+		soundHit = gameObject.GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -24,6 +24,7 @@ public class SwordAttack : MonoBehaviour {
         // Detect collision with enemy
         if (other.gameObject.tag == "Enemy")
         {
+			soundHit.Play ();
             EnemyHealth health = other.gameObject.GetComponent<EnemyHealth>();
             if (health)
             {

@@ -25,11 +25,14 @@ public class TowerPlacement : MonoBehaviour {
     public Material[] standardMats;
     private Material[] placementMats;
     private bool placementState = true;
+	AudioSource[] sounds;
+	AudioSource tower;
 
 
     // Use this for initialization
     void Start () {
-		
+		sounds = gameObject.GetComponents<AudioSource> ();
+		tower = sounds [1];
 	}
 	
 	// Update is called once per frame
@@ -53,6 +56,7 @@ public class TowerPlacement : MonoBehaviour {
 
                 // Put back the old materials
                 towerRenderer.materials = standardMats;
+				tower.Play ();
             }
         }
         else if (Input.GetKeyUp(KeyCode.T))
