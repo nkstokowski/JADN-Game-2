@@ -76,7 +76,7 @@ public class EnemyAI : MonoBehaviour {
 				//anim.Play ("Idle");
 
 			}
-		}
+		} 
 
 		if (InRange2 ()) {
 			anim.SetBool ("attack", true);
@@ -88,7 +88,7 @@ public class EnemyAI : MonoBehaviour {
 				//player.GetComponent<Animator>().Play("Jump_loop");
 				anim.SetBool ("attack", false);
 				if (health.currentHealth <= 0) {
-					anim.Play ("Defend");
+					anim.Play ("Defend");//
 				}
 			}
 		} else {
@@ -97,6 +97,9 @@ public class EnemyAI : MonoBehaviour {
 		//IF all of that is true, BUT we are close to our target, attack the target instead. (don't care about the player)
 		if(TargetIsInRange(target.transform.position, lineOfSightThreshold)){
 			SetTarget (target);
+		}
+		if (health.currentHealth <= 0) {
+			agent.SetDestination (gameObject.transform.position);
 		}
 
 

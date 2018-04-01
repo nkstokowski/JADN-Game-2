@@ -6,9 +6,11 @@ public class EnemyHealth : MonoBehaviour {
 
 	//Manager Access
 	EnemyManager enemyManager;
+	EnemyAI ai;
 	public GameObject effect;
 
 	void Start(){
+		ai = gameObject.GetComponent<EnemyAI> ();
 		enemyManager = GameObject.Find ("Game_Manager").GetComponent<EnemyManager> ();
 	}
 
@@ -50,6 +52,7 @@ public class EnemyHealth : MonoBehaviour {
 		//Could leave a billboard on the spot it died?
 		//gameObject.GetComponent<Animator> ().SetBool("bool3", true);
 		gameObject.GetComponent<Animator> ().Play ("Defend");
+
 		Instantiate (effect, new Vector3(transform.position.x - 1, transform.position.y + 1, transform.position.z), Quaternion.identity);
 		Invoke ("Death", .8f);
 	}
