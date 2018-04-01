@@ -7,6 +7,7 @@ public class LightningTower : BaseTrap
     [HeaderAttribute("Dependencies")]
     public GameObject lightningArcObject;
     public GameObject AttackOrigin;
+    public AudioClip electric;
 
     public int arcCount = 3;
     private LightningArc[] arcs;
@@ -50,6 +51,7 @@ public class LightningTower : BaseTrap
             if (!arcs[i].isAttacking() && !ai.isBeingAttacked())
             {
                 arcs[i].attack(enemy);
+                GetComponent<AudioSource>().Play();
             }
         }
 

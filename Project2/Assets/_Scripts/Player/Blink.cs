@@ -17,8 +17,15 @@ public class Blink : MonoBehaviour {
 	public GameObject countDownObject;
 	Text countDownText;
 
-	void Start(){
-		abilityManager = manager.GetComponent<AbilityManager>();
+    AudioSource[] sounds;
+    AudioSource warp;
+
+    void Start()
+    {
+        sounds = gameObject.GetComponents<AudioSource>();
+        warp = sounds[2];
+
+        abilityManager = manager.GetComponent<AbilityManager>();
 		countDownText = countDownObject.GetComponent<Text>();
 		countDownText.enabled = false;
 	}
@@ -27,6 +34,7 @@ public class Blink : MonoBehaviour {
 		if(Input.GetKeyUp(abilityKey) && canUseAbility){
 			StartCoroutine (BeginCoolDown ());
 			ApplyBlink ();
+            warp.Play();
 		} else {
 			return;
 		}

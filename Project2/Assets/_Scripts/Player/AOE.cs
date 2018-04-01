@@ -20,10 +20,17 @@ public class AOE : MonoBehaviour {
 	public GameObject countDownObject;
 	Text countDownText;
 
+    AudioSource[] sounds;
+    AudioSource boom;
 
-	// Use this for initialization
-	void Start () {
-		anim = GetComponent<Animator>();
+
+    // Use this for initialization
+    void Start ()
+    {
+        sounds = gameObject.GetComponents<AudioSource>();
+        boom = sounds[1];
+
+        anim = GetComponent<Animator>();
 		rbody = GetComponent<Rigidbody>();
 		abilityManager = manager.GetComponent<AbilityManager>();
 		countDownText = countDownObject.GetComponent<Text>();
@@ -39,6 +46,8 @@ public class AOE : MonoBehaviour {
 			StartCoroutine(BeginCoolDown());
 			anim.Play ("Attack_04", -1, 0F);
 			Invoke ("Attack", 0.7f);
+
+            boom.Play();
 		}
 	}
 

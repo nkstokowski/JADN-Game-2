@@ -8,6 +8,7 @@ public class TowerPlacement : MonoBehaviour {
     // This is the object to clone when placing a tower
     // Currently only used when debugging
     public GameObject towerObjectPrefab;
+    public GameObject shopCanvas;
 
     [HeaderAttribute("Placement Variables")]
     public float spawnHeight = 28.998f;
@@ -40,6 +41,7 @@ public class TowerPlacement : MonoBehaviour {
 
         if (placing)
         {
+            shopCanvas.SetActive(false);
             Vector3 newPosition = UpdateInstancePosition(towerPlacingInstance);
             placementState = canBePlaced(newPosition);
             setPlacementMats();
@@ -48,6 +50,7 @@ public class TowerPlacement : MonoBehaviour {
             {
                 placing = false;
                 Destroy(towerPlacingInstance);
+                shopCanvas.SetActive(true);
             }
             else if (Input.GetButtonDown("Fire1") && placementState)
             {
@@ -57,6 +60,7 @@ public class TowerPlacement : MonoBehaviour {
                 // Put back the old materials
                 towerRenderer.materials = standardMats;
 				tower.Play ();
+                shopCanvas.SetActive(true);
             }
         }
         else if (Input.GetKeyUp(KeyCode.T))

@@ -18,6 +18,7 @@ public class ShopScript : MonoBehaviour {
     public GameObject slider;
     public GameObject spikeTrap;
     public GameObject lightning;
+    public GameObject healthTower;
     float sliderWidth;
     public GameObject shopCanvas;
 	bool isShopOpen = false;
@@ -33,10 +34,12 @@ public class ShopScript : MonoBehaviour {
 
 	AudioSource[] sounds;
 	AudioSource purchase;
+    AudioSource upgrade;
 
 	void Start(){
 		sounds = gameObject.GetComponents<AudioSource> ();
 		purchase = sounds [0];
+        upgrade = sounds[2];
 		pauseManager = GameObject.Find ("Game_Manager").GetComponent<Pause>();
         scoreManager = GameObject.Find("Game_Manager").GetComponent<ScoreManager>();
         towerPlacement = GameObject.Find("Game_Manager").GetComponent<TowerPlacement>();
@@ -84,7 +87,8 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= costHealth)
         {
-			purchase.Play ();
+            upgrade.Play();
+			//purchase.Play ();
             playerHealth.maxHealth += 25;
             healthSlider.maxValue += 25;
             slider.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, sliderWidth += 25);
@@ -99,7 +103,8 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= costDmg)
         {
-			purchase.Play ();
+            upgrade.Play();
+            //purchase.Play ();
             arrowShooting.arrowDamage += 25;
             swordAttack.damage += 25;
             costDmg += 50;
@@ -113,7 +118,8 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= costSpd)
         {
-			purchase.Play ();
+            upgrade.Play();
+            //purchase.Play ();
             playerMovement.walkSpeed += .05f;
             costSpd += 50;
             GameObject.Find("Speed Upgrade " + speedTier).SetActive(false);
@@ -126,7 +132,8 @@ public class ShopScript : MonoBehaviour {
     {
         if (scoreManager.playerMoney >= blinkCost)
         {
-			purchase.Play ();
+            upgrade.Play();
+            //purchase.Play ();
             blink.blinkDistance += .05f;
             blinkCost += 50;
             GameObject.Find("Blink Upgrade " + blinkTier).SetActive(false);
@@ -161,6 +168,16 @@ public class ShopScript : MonoBehaviour {
         {
 			purchase.Play ();
             towerPlacement.startPlacing(lightning);
+            scoreManager.playerMoney -= towerCost;
+        }
+    }
+
+    public void purchaseHealthTower()
+    {
+        if (scoreManager.playerMoney >= towerCost)
+        {
+            purchase.Play();
+            towerPlacement.startPlacing(healthTower);
             scoreManager.playerMoney -= towerCost;
         }
     }
