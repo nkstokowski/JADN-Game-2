@@ -14,7 +14,7 @@ public class SpikeTrap : BaseTrap
     }
 		
 	void OnTriggerEnter(Collider other){
-		Debug.Log("Spike Trap");
+		//Debug.Log("Spike Trap");
 		if(other.gameObject.tag == "Enemy"){
 			ApplyTrapEffect(other.gameObject);
 			Debug.Log("Spike Trap");

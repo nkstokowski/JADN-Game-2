@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 82540801807060158}
   m_Layer: 0
   m_Name: Spike_Trap
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191784217235834}
-  m_LocalRotation: {x: 0, y: -0.70710677, z: -0.70710677, w: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: -2.730751, y: 29, z: -4.34}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []

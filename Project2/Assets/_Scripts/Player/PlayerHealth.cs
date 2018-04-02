@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour {
 
 	public int health = 100;
-    public int maxHealth;
+    public int maxHealth = 100;
 	public GameObject manager;
 	public GameObject healthSlider;
 
@@ -23,6 +23,15 @@ public class PlayerHealth : MonoBehaviour {
 			return;
 		}
 	}
+
+    public void Heal(int heal)
+    {
+        health += heal;
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
 
 	void Update(){
 		healthSlider.GetComponent<Slider>().value = health;

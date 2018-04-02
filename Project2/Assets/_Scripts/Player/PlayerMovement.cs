@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour {
     [HeaderAttribute("Dependencies")]
     public GameObject player;
     public GameObject gameManagerObj;
+    public AudioClip footstep;
+    private AudioSource audio;
 	private Pause gameManagerPause;
 
 
@@ -34,7 +36,9 @@ public class PlayerMovement : MonoBehaviour {
         {
 			gameManagerPause = gameManagerObj.GetComponent<Pause>();
         }
-	}
+        audio = GetComponents<AudioSource>()[4];
+
+    }
 
 	void Update(){
 
@@ -48,6 +52,21 @@ public class PlayerMovement : MonoBehaviour {
 		// Player Movement
 		var x = Input.GetAxis ("Horizontal") * Time.deltaTime * currentSpeed;
 		var z = Input.GetAxis ("Vertical") * Time.deltaTime * currentSpeed;
+
+        float thresh = 0.1f;
+
+        if( (((x > thresh) || (x < -thresh)) || ((z > thresh) || (z < -thresh))))
+        {
+            if (!audio.isPlaying)
+            {
+                audio.volume = .4f;
+                audio.PlayOneShot(footstep);
+            }
+        }
+        else
+        {
+            audio.volume = 1f;
+        }
 
 		transform.Translate(x, 0.0f, z);
 	}

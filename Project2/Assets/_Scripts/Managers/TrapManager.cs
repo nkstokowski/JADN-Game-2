@@ -16,7 +16,8 @@ public enum TrapType{
 	Spike,
 	Tower,
     Lightning,
-    Sniper
+    Sniper,
+    Healing
 }
 
 public enum TrapEffect{

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     [HeaderAttribute("Melee Attack")]
     public string meleeAnimation = "Attack_01";
     public float meleeOffset = 0.0f;
+    public AudioClip swordSwing;
 
     [HeaderAttribute("Ranged Attack")]
     public string rangedAnimation = "Attack_07";
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour {
 	private float inputV;
 	private bool run;
 
+    private AudioSource audio;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour {
 		rbody = GetComponent<Rigidbody>();
 		run = false;
         placement = gameManager.GetComponent<TowerPlacement>();
+        audio = GetComponents<AudioSource>()[3];
 	}
 
 
@@ -86,7 +90,10 @@ public class Player : MonoBehaviour {
 
         if (Input.GetMouseButtonDown (0) && wait == true && !isPlacing) {
 			anim.Play (meleeAnimation, -1, meleeOffset);
-
+            if (!audio.isPlaying)
+            {
+                audio.PlayOneShot(swordSwing);
+            }
 			//anim.CrossFade ("Idle_Weapon", .3f);
 		}
 		if (AnimatorIsPlaying (meleeAnimation)) {
@@ -110,15 +117,6 @@ public class Player : MonoBehaviour {
 		else
 		{
 			run = false;
-		}
-
-		if (Input.GetKey (KeyCode.Space)) 
-		{
-			anim.SetBool ("jump", true);
-		} 
-		else
-		{
-			anim.SetBool ("jump",false);
 		}
 
 		Vector2 playerOnScreen = Camera.main.WorldToViewportPoint (transform.position);
